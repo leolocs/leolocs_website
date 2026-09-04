@@ -23,3 +23,5 @@ pnpm-debug.log*
 .vscode/
 .DS_Store
 Thumbs.db
+
+prompt_IA_criacao_do_site.md
