@@ -11,6 +11,25 @@ coverage/
 # Ambiente
 .env
 .env.*
+!.env.example
+
+# Credenciais e certificados
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.secret
+
+# Bancos e dumps locais
+*.db
+*.sqlite
+*.sqlite3
+*.dump
+*.sql
 
 # Logs
 *.log

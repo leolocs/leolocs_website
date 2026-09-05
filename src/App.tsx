@@ -33,7 +33,6 @@ const showTrustSection = false;
 
 const services = [
   {
-    number: '01',
     title: 'Landing Pages',
     headline: 'Uma página construída para transformar atenção em ação.',
     description:
@@ -45,7 +44,6 @@ const services = [
     align: 'right',
   },
   {
-    number: '02',
     title: 'Sites Institucionais',
     headline: 'Sua empresa disponível, profissional e preparada para ser encontrada.',
     description:
@@ -57,7 +55,6 @@ const services = [
     align: 'left',
   },
   {
-    number: '03',
     title: 'UI/UX Design',
     headline: 'Interfaces bonitas precisam, antes de tudo, ser fáceis de usar.',
     description:
@@ -69,7 +66,6 @@ const services = [
     align: 'right',
   },
   {
-    number: '04',
     title: 'Manutenção & Suporte',
     headline: 'Seu site precisa continuar funcionando depois da publicação.',
     description:
@@ -162,11 +158,10 @@ function App() {
   return (
     <div className="min-h-screen bg-bg text-text font-body antialiased">
       <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
-        <div className="mx-auto max-w-[1220px] rounded-[14px] border border-border bg-[#1a1a1d]/70 px-4 py-3 shadow-soft backdrop-blur-xl">
+        <div className="mx-auto max-w-[1220px] rounded-[14px] border border-border bg-[#1a1a1d]/70 px-4 py-3 backdrop-blur-xl">
           <div className="flex items-center justify-between gap-4">
             <a href="#inicio" className="flex items-center gap-3" aria-label="Leolocs início">
-              <img src={logoWhite} alt="Leolocs logo" className="h-8 w-8 object-contain" />
-              <span className="text-lg font-semibold tracking-[0.2em] text-white">LEOLOCS</span>
+              <img src={logoWhite} alt="Leolocs logo" className="h-7 w-30 object-contain" />
             </a>
 
             <nav className="hidden items-center gap-8 md:flex">
@@ -186,7 +181,7 @@ function App() {
             <div className="hidden md:block">
               <a
                 href={`${whatsappBase}?text=${encodeURIComponent('Olá! Acessei o site da Leolocs e gostaria de conversar sobre um projeto.')}`}
-                className="inline-flex items-center gap-2 rounded-full bg-brand px-5 py-2.5 text-xs font-bold tracking-[0.12em] text-white transition hover:bg-brandHover hover:shadow-lg"
+                className="inline-flex items-center gap-2 rounded-full bg-brand px-5 py-2.5 text-xs font-bold tracking-[0.12em] text-white transition hover:bg-brandHover"
               >
                 SOLICITAR ORÇAMENTO
               </a>
@@ -227,15 +222,12 @@ function App() {
 
       <main id="inicio" className="scroll-smooth">
         <section className="relative overflow-hidden pt-32 md:pt-40">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,23,36,0.18),_transparent_35%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(189,20,20,0.18),_transparent_35%)]" />
           <div className="absolute inset-0 bg-grid bg-[size:36px_36px] opacity-20" />
           <div className="relative mx-auto grid max-w-[1220px] gap-12 px-4 pb-16 pt-8 md:grid-cols-[1.1fr_0.9fr] md:items-center md:pb-20">
             <div>
-              <p className="mb-6 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[10px] font-bold tracking-[0.22em] text-white/80 uppercase">
-                DESIGN • DESENVOLVIMENTO • ESTRATÉGIA DIGITAL
-              </p>
               <h1 className="max-w-[620px] text-4xl font-black leading-[1.05] tracking-[-0.06em] text-white md:text-6xl">
-                Seu site não precisa ser bonito só para impressionar. Precisa <span className="text-brand">criar confiança e gerar contato.</span>
+                Seu site precisa <span className="text-brand">criar confiança e gerar contato.</span>
               </h1>
               <p className="mt-6 max-w-[620px] text-lg leading-8 text-muted">
                 Transformo a presença digital do seu negócio em uma experiência clara, profissional e persuasiva — para que clientes entendam seu valor, confiem no seu trabalho e saiam do site prontos para conversar.
@@ -266,10 +258,10 @@ function App() {
             <div className="relative mx-auto w-full max-w-[560px]">
               <div className="absolute -left-10 top-8 h-24 w-24 rounded-full bg-brand/20 blur-3xl" />
               <div className="absolute -right-10 bottom-8 h-28 w-28 rounded-full bg-brand/15 blur-3xl" />
-              <div className="relative overflow-hidden rounded-[24px] border border-white/10 bg-[#141416]/80 p-4 shadow-soft">
+              <div className="relative overflow-hidden rounded-[24px] border border-white/10 bg-[#141416]/80 p-4">
                 <div className="mb-4 flex items-center justify-between rounded-[12px] border border-white/10 bg-[#1b1b1d] px-4 py-3">
                   <div className="flex gap-2">
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#BD1414]" />
                     <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
                     <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
                   </div>
@@ -277,12 +269,12 @@ function App() {
                 </div>
                 <div className="grid gap-4 md:grid-cols-[1.2fr_0.8fr]">
                   <div className="rounded-[18px] border border-white/10 bg-[#1a1a1d] p-4">
-                    <div className="mb-4 h-48 rounded-[12px] bg-[radial-gradient(circle_at_top,_rgba(255,23,36,0.25),_transparent_30%),linear-gradient(135deg,#17171a,#111113)] p-3">
+                    <div className="mb-4 h-48 rounded-[12px] bg-[radial-gradient(circle_at_top,_rgba(189,20,20,0.25),_transparent_30%),linear-gradient(135deg,#17171a,#111113)] p-3">
                       <div className="flex h-full items-end rounded-[10px] border border-white/10 bg-white/5 p-3">
                         <div className="w-full rounded-[10px] border border-brand/40 bg-[#121215] p-3">
                           <div className="mb-2 h-2 w-20 rounded-full bg-brand/80" />
                           <div className="mb-2 h-2 w-32 rounded-full bg-white/15" />
-                          <div className="mb-3 h-20 rounded-[8px] bg-[linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,23,36,0.18))]" />
+                          <div className="mb-3 h-20 rounded-[8px] bg-[linear-gradient(135deg,rgba(255,255,255,0.06),rgba(189,20,20,0.18))]" />
                           <div className="flex gap-2">
                             <span className="h-8 flex-1 rounded-md bg-white/5" />
                             <span className="h-8 flex-1 rounded-md bg-brand/40" />
@@ -299,7 +291,7 @@ function App() {
                         <p className="text-[10px] uppercase tracking-[0.18em] text-muted">Conversão</p>
                         <span className="rounded-full bg-brand/15 px-2 py-1 text-[10px] font-bold text-brand">+48%</span>
                       </div>
-                      <div className="h-20 rounded-xl bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,23,36,0.12))] p-3">
+                      <div className="h-20 rounded-xl bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(189,20,20,0.12))] p-3">
                         <div className="flex h-full items-end justify-between gap-2">
                           <span className="w-2 rounded-full bg-white/20" style={{ height: '35%' }} />
                           <span className="w-2 rounded-full bg-white/20" style={{ height: '60%' }} />
@@ -329,7 +321,7 @@ function App() {
         </section>
 
         <section className="relative mx-auto max-w-[1220px] px-4 py-20">
-          <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brand">01 — SUA PRESENÇA DIGITAL</div>
+          <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brand">SUA PRESENÇA DIGITAL</div>
           <h2 className="max-w-[760px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
             Seu site deveria trabalhar pelo seu negócio — não apenas existir na internet.
           </h2>
@@ -343,7 +335,7 @@ function App() {
               ['Seu site atual não acompanha mais seu negócio.', 'Design ultrapassado, navegação confusa e uma experiência ruim no celular dificultam a comunicação e afastam potenciais clientes.'],
               ['Os visitantes chegam, mas não sabem qual é o próximo passo.', 'Sem uma estrutura clara e chamadas para ação estratégicas, seu site pode receber acessos sem transformar esse interesse em contatos reais.'],
             ].map(([title, text], index) => (
-              <div key={index} className="rounded-[18px] border border-border bg-card p-6 shadow-soft">
+              <div key={index} className="rounded-[18px] border border-border bg-card p-6">
                 <div className="mb-4 h-11 w-11 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-sm font-bold text-brand">
                   0{index + 1}
                 </div>
@@ -359,7 +351,7 @@ function App() {
         </section>
 
         <section id="servicos" className="mx-auto max-w-[1220px] px-4 py-20">
-          <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brand">02 — SOLUÇÕES</div>
+          <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brand">SOLUÇÕES</div>
           <h2 className="max-w-[820px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
             Soluções digitais que ajudam o cliente a entender seu valor antes de você precisar explicar.
           </h2>
@@ -371,12 +363,11 @@ function App() {
             {services.map((service, index) => (
               <article
                 key={service.title}
-                className="overflow-hidden rounded-[24px] border border-border bg-card p-4 shadow-soft md:p-8"
+                className="overflow-hidden rounded-[24px] border border-border bg-card p-4 md:p-8"
               >
                 <div className="grid items-center gap-8 md:grid-cols-2">
                   <div className={service.align === 'right' ? 'md:order-1' : 'md:order-2'}>
                     <div className="mb-4 flex items-center gap-4">
-                      <span className="text-4xl font-black text-brand">{service.number}</span>
                       <span className="text-xs font-bold uppercase tracking-[0.16em] text-white/60">{service.title}</span>
                     </div>
                     <h3 className="text-3xl font-black tracking-[-0.05em] text-white md:text-4xl">{service.headline}</h3>
@@ -416,16 +407,16 @@ function App() {
                   </div>
 
                   <div className={service.align === 'right' ? 'md:order-2' : 'md:order-1'}>
-                    <div className="rounded-[22px] border border-white/10 bg-[#17171a] p-4 shadow-soft">
+                    <div className="rounded-[22px] border border-white/10 bg-[#17171a] p-4">
                       <div className="mb-4 flex items-center justify-between rounded-[12px] border border-white/10 bg-[#1b1b1d] px-4 py-3">
                         <div className="flex gap-2">
-                          <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
+                          <span className="h-2.5 w-2.5 rounded-full bg-[#BD1414]" />
                           <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
                           <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
                         </div>
                         <span className="text-[9px] uppercase tracking-[0.18em] text-muted">dashboard</span>
                       </div>
-                      <div className="rounded-[12px] border border-white/10 bg-[radial-gradient(circle_at_top,_rgba(255,23,36,0.2),_transparent_30%),linear-gradient(135deg,#18181b,#111113)] p-5">
+                      <div className="rounded-[12px] border border-white/10 bg-[radial-gradient(circle_at_top,_rgba(189,20,20,0.2),_transparent_30%),linear-gradient(135deg,#18181b,#111113)] p-5">
                         <div className="mb-4 flex items-center justify-between">
                           <div>
                             <div className="mb-2 h-2.5 w-28 rounded-full bg-white/15" />
@@ -456,7 +447,7 @@ function App() {
         </section>
 
         <section className="mx-auto max-w-[1220px] px-4 py-20">
-          <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brand">03 — MAIS DO QUE UM SITE</div>
+          <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brand">MAIS DO QUE UM SITE</div>
           <h2 className="max-w-[740px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
             Um projeto digital pensado do primeiro contato à publicação.
           </h2>
@@ -476,7 +467,7 @@ function App() {
 
         {showProjectsSection && (
           <section id="projetos" className="mx-auto max-w-[1220px] px-4 py-20">
-            <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brand">04 — TRABALHOS</div>
+            <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brand">TRABALHOS</div>
             <h2 className="max-w-[760px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
               Projetos criados para negócios reais.
             </h2>
@@ -486,13 +477,13 @@ function App() {
 
             <div className="mt-12 grid gap-6 lg:grid-cols-3">
               {projectCards.map((project) => (
-                <article key={project.name} className="overflow-hidden rounded-[20px] border border-border bg-card shadow-soft">
-                  <div className="h-60 rounded-b-[18px] border-b border-white/10 bg-[radial-gradient(circle_at_top,_rgba(255,23,36,0.12),_transparent_35%),linear-gradient(135deg,#1b1b1d,#111113)] p-4">
+                <article key={project.name} className="overflow-hidden rounded-[20px] border border-border bg-card">
+                  <div className="h-60 rounded-b-[18px] border-b border-white/10 bg-[radial-gradient(circle_at_top,_rgba(189,20,20,0.12),_transparent_35%),linear-gradient(135deg,#1b1b1d,#111113)] p-4">
                     <div className="flex h-full items-end rounded-[12px] border border-white/10 bg-white/5 p-3">
                       <div className="w-full rounded-[10px] border border-white/10 bg-[#121215] p-3">
                         <div className="mb-2 h-2 w-16 rounded-full bg-brand/80" />
                         <div className="mb-3 h-2 w-28 rounded-full bg-white/10" />
-                        <div className="h-20 rounded-[8px] bg-[linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,23,36,0.15))]" />
+                        <div className="h-20 rounded-[8px] bg-[linear-gradient(135deg,rgba(255,255,255,0.08),rgba(189,20,20,0.15))]" />
                       </div>
                     </div>
                   </div>
@@ -529,7 +520,7 @@ function App() {
         </section>
 
         <section id="processo" className="mx-auto max-w-[1220px] px-4 py-20">
-          <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brand">05 — COMO FUNCIONA</div>
+          <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brand">COMO FUNCIONA</div>
           <h2 className="max-w-[700px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
             Do primeiro contato ao site publicado.
           </h2>
@@ -539,11 +530,11 @@ function App() {
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-5">
             {[
-              ['01 — Diagnóstico', 'Conversamos sobre sua empresa, público, objetivos, referências e necessidades para entender qual solução realmente faz sentido.'],
-              ['02 — Estratégia', 'Definimos estrutura, páginas, conteúdo, funcionalidades e direção visual antes do desenvolvimento.'],
-              ['03 — Design', 'A interface é construída buscando equilíbrio entre identidade visual, experiência do usuário e objetivo comercial.'],
-              ['04 — Desenvolvimento', 'O design é transformado em uma experiência responsiva, funcional e otimizada para diferentes dispositivos.'],
-              ['05 — Publicação', 'Depois da revisão e aprovação final, o projeto é preparado para domínio, hospedagem e lançamento.'],
+              ['Diagnóstico', 'Conversamos sobre sua empresa, público, objetivos, referências e necessidades para entender qual solução realmente faz sentido.'],
+              ['Estratégia', 'Definimos estrutura, páginas, conteúdo, funcionalidades e direção visual antes do desenvolvimento.'],
+              ['Design', 'A interface é construída buscando equilíbrio entre identidade visual, experiência do usuário e objetivo comercial.'],
+              ['Desenvolvimento', 'O design é transformado em uma experiência responsiva, funcional e otimizada para diferentes dispositivos.'],
+              ['Publicação', 'Depois da revisão e aprovação final, o projeto é preparado para domínio, hospedagem e lançamento.'],
             ].map(([step, text]) => (
               <div key={step} className="rounded-[18px] border border-border bg-card p-5">
                 <div className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-brand">{step}</div>
@@ -564,7 +555,7 @@ function App() {
 
         {showTrustSection && (
           <section className="mx-auto max-w-[1220px] px-4 py-20">
-            <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brand">06 — CONFIANÇA</div>
+            <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brand">CONFIANÇA</div>
             <h2 className="max-w-[760px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
               A experiência de quem já confiou no meu trabalho.
             </h2>
@@ -574,7 +565,7 @@ function App() {
                 ['“A nova presença digital mudou a percepção do nosso negócio e deixou muito mais fácil para clientes entenderem o que fazemos.”', 'Rafael Costa', 'Studio Norte', 'Sócio'],
                 ['“O site ficou profissional, moderno e funcional. Sem dúvida, uma decisão que trouxe mais credibilidade para a empresa.”', 'Ana Paula', 'Medição & Co.', 'Fundadora'],
               ].map(([quote, name, company, role]) => (
-                <div key={name} className="rounded-[20px] border border-border bg-card p-6 shadow-soft">
+                <div key={name} className="rounded-[20px] border border-border bg-card p-6">
                   <div className="mb-4 flex items-center gap-2 text-brand">
                     <CircleDashed size={18} />
                     <CircleDashed size={18} />
@@ -593,8 +584,8 @@ function App() {
 
         <section id="sobre" className="mx-auto max-w-[1220px] px-4 py-20">
           <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="overflow-hidden rounded-[24px] border border-border bg-card p-4 shadow-soft">
-              <div className="rounded-[18px] border border-white/10 bg-[radial-gradient(circle_at_top_left,_rgba(255,23,36,0.18),_transparent_35%),linear-gradient(135deg,#1b1b1d,#121214)] p-4">
+            <div className="overflow-hidden rounded-[24px] border border-border bg-card p-4">
+              <div className="rounded-[18px] border border-white/10 bg-[radial-gradient(circle_at_top_left,_rgba(189,20,20,0.18),_transparent_35%),linear-gradient(135deg,#1b1b1d,#121214)] p-4">
                 <img
                   src={profileImage}
                   alt="Leonardo Leolocs"
@@ -604,7 +595,7 @@ function App() {
             </div>
 
             <div>
-              <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brand">07 — SOBRE MIM</div>
+              <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brand">SOBRE MIM</div>
               <h2 className="text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
                 Design, tecnologia e estratégia trabalhando para o mesmo objetivo.
               </h2>
@@ -625,7 +616,7 @@ function App() {
         </section>
 
         <section className="mx-auto max-w-[1220px] px-4 py-20">
-          <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brand">08 — DÚVIDAS FREQUENTES</div>
+          <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brand">DÚVIDAS FREQUENTES</div>
           <h2 className="max-w-[760px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
             Antes de começarmos, algumas respostas.
           </h2>
@@ -651,7 +642,7 @@ function App() {
         </section>
 
         <section className="mx-auto max-w-[1220px] px-4 py-20">
-          <div className="rounded-[28px] border border-brand/25 bg-[radial-gradient(circle_at_top,_rgba(255,23,36,0.2),_transparent_35%),linear-gradient(180deg,#1d1d20,#151518)] p-8 shadow-soft md:p-12">
+          <div className="rounded-[28px] border border-brand/25 bg-[radial-gradient(circle_at_top,_rgba(189,20,20,0.2),_transparent_35%),linear-gradient(180deg,#1d1d20,#151518)] p-8 md:p-12">
             <div className="text-xs font-bold uppercase tracking-[0.2em] text-brand">VAMOS COMEÇAR?</div>
             <h2 className="mt-5 max-w-[850px] text-3xl font-black tracking-[-0.05em] text-white md:text-6xl">
               Seu próximo cliente pode estar procurando exatamente pelo que sua empresa oferece.
@@ -675,16 +666,6 @@ function App() {
               </a>
             </div>
 
-            <p className="mt-6 text-sm text-muted">Conte um pouco sobre seu projeto. Sem compromisso.</p>
-
-            <div className="mt-8 flex flex-wrap items-center gap-5 text-sm text-white/75">
-              <a href="https://t.me/leolocs" className="inline-flex items-center gap-2 hover:text-brand">
-                <Globe size={16} /> Telegram
-              </a>
-              <a href="mailto:leolocs04@gmail.com" className="inline-flex items-center gap-2 hover:text-brand">
-                <ArrowUpRight size={16} /> E-mail
-              </a>
-            </div>
           </div>
         </section>
       </main>
@@ -693,8 +674,7 @@ function App() {
         <div className="mx-auto grid max-w-[1220px] gap-10 px-4 py-12 md:grid-cols-2 xl:grid-cols-5">
           <div className="xl:col-span-2">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-sm font-semibold text-white">L</div>
-              <span className="text-lg font-semibold tracking-[0.2em] text-white">LEOLOCS</span>
+              <img src={logoWhite} alt="Leolocs logo" className="h-8 w-30 object-contain" />
             </div>
             <p className="mt-5 max-w-[420px] text-base leading-7 text-muted">
               Design e desenvolvimento de experiências digitais para negócios que querem construir uma presença mais profissional.

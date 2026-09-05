@@ -10,12 +10,9 @@ export default {
         soft: '#242427',
         text: '#F5F5F3',
         muted: '#AAA9AD',
-        brand: '#FF1724',
-        brandHover: '#D70B16',
+        brand: '#BD1414',
+        brandHover: '#BD1414',
         border: 'rgba(255,255,255,0.10)',
-      },
-      boxShadow: {
-        soft: '0 20px 60px rgba(0,0,0,0.25)',
       },
       borderRadius: {
         xl2: '18px',
