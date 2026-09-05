@@ -227,10 +227,10 @@ function App() {
           <div className="relative mx-auto grid max-w-[1220px] gap-12 px-4 pb-16 pt-8 md:grid-cols-[1.1fr_0.9fr] md:items-center md:pb-20">
             <div>
               <h1 className="max-w-[620px] text-4xl font-black leading-[1.05] tracking-[-0.06em] text-white md:text-6xl">
-                Seu site precisa <span className="text-brand">criar confiança e gerar contato.</span>
+                Sites profissionais que valorizam seu negócio e facilitam o contato com novos clientes.
               </h1>
               <p className="mt-6 max-w-[620px] text-lg leading-8 text-muted">
-                Transformo a presença digital do seu negócio em uma experiência clara, profissional e persuasiva — para que clientes entendam seu valor, confiem no seu trabalho e saiam do site prontos para conversar.
+                Crio sites e landing pages modernos, rápidos e estratégicos para empresas e profissionais que querem transmitir mais credibilidade, apresentar seus serviços com clareza e transformar visitantes em possíveis clientes.
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -238,20 +238,20 @@ function App() {
                   href={`${whatsappBase}?text=${encodeURIComponent('Olá! Acessei o site da Leolocs e gostaria de conversar sobre um projeto.')}`}
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-brand px-6 py-3.5 text-sm font-bold tracking-[0.12em] text-white transition hover:bg-brandHover"
                 >
-                  SOLICITAR ORÇAMENTO <ArrowRight size={16} />
+                  Conversar sobre meu projeto <ArrowRight size={16} />
                 </a>
                 <a
                   href="#processo"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/0 px-6 py-3.5 text-sm font-bold tracking-[0.12em] text-white transition hover:border-brand/50 hover:text-brand"
                 >
-                  COMO FUNCIONA <ArrowUpRight size={16} />
+                  Como funciona <ArrowUpRight size={16} />
                 </a>
               </div>
 
               <div className="mt-10 flex flex-wrap gap-5 text-sm text-white/80">
-                <span className="inline-flex items-center gap-2"><BadgeCheck className="text-brand" size={16} /> Design responsivo</span>
-                <span className="inline-flex items-center gap-2"><BadgeCheck className="text-brand" size={16} /> Desenvolvimento personalizado</span>
-                <span className="inline-flex items-center gap-2"><BadgeCheck className="text-brand" size={16} /> Suporte do início à publicação</span>
+                <span className="inline-flex items-center gap-2"><BadgeCheck className="text-brand" size={16} /> Projeto sob medida</span>
+                <span className="inline-flex items-center gap-2"><BadgeCheck className="text-brand" size={16} /> Performance e responsividade</span>
+                <span className="inline-flex items-center gap-2"><BadgeCheck className="text-brand" size={16} /> 1 ano de suporte incluso</span>
               </div>
             </div>
 
