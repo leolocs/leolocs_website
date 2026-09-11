@@ -2,24 +2,18 @@ import {
   ArrowRight,
   ArrowUpRight,
   BadgeCheck,
-  Briefcase,
-  Check,
   ChevronDown,
   ChevronRight,
   CircleDashed,
-  Globe,
-  LayoutTemplate,
   Menu,
-  MessageCircle,
   MonitorSmartphone,
-  Sparkles,
   X,
 } from 'lucide-react';
 import { SiBehance, SiGithub } from 'react-icons/si';
 import { FaLinkedinIn } from 'react-icons/fa';
 import { useState } from 'react';
-import profileImage from './assets/leolocs-profile.jpg';
-import logoWhite from './assets/leolocs-logo-white.png';
+import profileImage from './assets/leolocs-profile.webp';
+import logoWhite from './assets/leolocs-logo-white.webp';
 
 const navItems = [
   { label: 'Início', href: '#inicio' },
@@ -30,53 +24,6 @@ const navItems = [
 
 const showProjectsSection = false;
 const showTrustSection = false;
-
-const services = [
-  {
-    title: 'Landing Pages',
-    headline: 'Uma página construída para transformar atenção em ação.',
-    description:
-      'Landing pages desenvolvidas estrategicamente para apresentar uma oferta, serviço ou campanha de forma clara e conduzir o visitante até uma ação específica — como solicitar orçamento, entrar em contato ou se tornar um lead.',
-    ideal: ['campanhas', 'anúncios', 'lançamentos', 'geração de leads', 'apresentação de serviços', 'validação de novas ofertas'],
-    includes: ['estrutura estratégica da página', 'UI/UX Design', 'desenvolvimento responsivo', 'integração com WhatsApp', 'CTAs estratégicos', 'otimização de performance', 'configuração para publicação'],
-    cta: 'QUERO UMA LANDING PAGE',
-    link: 'https://wa.me/5585999893938?text=Ol%C3%A1%21%20Acessei%20o%20site%20da%20Leolocs%20e%20gostaria%20de%20conversar%20sobre%20uma%20Landing%20Page.',
-    align: 'right',
-  },
-  {
-    title: 'Sites Institucionais',
-    headline: 'Sua empresa disponível, profissional e preparada para ser encontrada.',
-    description:
-      'Desenvolvimento de sites profissionais para apresentar sua empresa, seus serviços, seus diferenciais e suas formas de contato com clareza, organização e credibilidade.',
-    ideal: ['empresas', 'clínicas', 'escritórios', 'profissionais liberais', 'negócios locais', 'prestadores de serviços'],
-    includes: ['planejamento da arquitetura do site', 'design personalizado', 'páginas institucionais', 'área de serviços', 'apresentação da empresa', 'integração com WhatsApp', 'responsividade', 'SEO técnico básico', 'domínio e publicação'],
-    cta: 'QUERO UM SITE PROFISSIONAL',
-    link: 'https://wa.me/5585999893938?text=Ol%C3%A1%21%20Acessei%20o%20site%20da%20Leolocs%20e%20gostaria%20de%20conversar%20sobre%20a%20cria%C3%A7%C3%A3o%20de%20um%20site%20para%20minha%20empresa.',
-    align: 'left',
-  },
-  {
-    title: 'UI/UX Design',
-    headline: 'Interfaces bonitas precisam, antes de tudo, ser fáceis de usar.',
-    description:
-      'Criação e planejamento de interfaces digitais modernas, organizadas e intuitivas, desenvolvidas para proporcionar uma experiência clara para o usuário e fortalecer a percepção profissional da marca.',
-    ideal: [],
-    includes: ['pesquisa de referência', 'estrutura da interface', 'wireframes', 'prototipação', 'Design System', 'componentes', 'layout responsivo', 'protótipos navegáveis', 'revisão da experiência do usuário'],
-    cta: 'PRECISO DE UM DESIGN',
-    link: 'https://wa.me/5585999893938?text=Ol%C3%A1%21%20Acessei%20o%20site%20da%20Leolocs%20e%20gostaria%20de%20conversar%20sobre%20UI%2FUX%20Design.',
-    align: 'right',
-  },
-  {
-    title: 'Manutenção & Suporte',
-    headline: 'Seu site precisa continuar funcionando depois da publicação.',
-    description:
-      'Acompanhamento para manter seu site atualizado, seguro e funcionando corretamente, além de permitir melhorias e ajustes conforme seu negócio evolui.',
-    ideal: [],
-    includes: ['atualização de conteúdos', 'pequenas alterações', 'correção de problemas', 'acompanhamento técnico', 'ajustes responsivos', 'otimizações', 'suporte relacionado à hospedagem', 'acompanhamento de domínio'],
-    cta: 'QUERO MANTER MEU SITE ATUALIZADO',
-    link: 'https://wa.me/5585999893938?text=Ol%C3%A1%21%20Acessei%20o%20site%20da%20Leolocs%20e%20gostaria%20de%20conversar%20sobre%20manuten%C3%A7%C3%A3o%20e%20suporte.',
-    align: 'left',
-  },
-];
 
 const faqItems = [
   {
@@ -104,13 +51,6 @@ const faqItems = [
     answer:
       'Todo projeto é desenvolvido e preparado com boas técnicas de SEO e estrutura adequada para indexação. Posicionamento nos resultados, entretanto, também depende de estratégia de conteúdo, concorrência e outros fatores.',
   },
-];
-
-const benefitItems = [
-  { title: 'Estratégia', description: 'Antes de começar o design, entendemos o negócio, o público e o objetivo principal do projeto.', icon: Briefcase },
-  { title: 'Design', description: 'Cada interface é pensada para transmitir profissionalismo, organizar as informações e facilitar a tomada de decisão.', icon: LayoutTemplate },
-  { title: 'Desenvolvimento', description: 'O design é transformado em um site rápido, responsivo, moderno e preparado para funcionar nos principais dispositivos.', icon: MonitorSmartphone },
-  { title: 'Acompanhamento', description: 'Você acompanha o desenvolvimento do projeto e recebe orientação até o momento da publicação.', icon: Sparkles },
 ];
 
 const whySiteItems = [
@@ -218,16 +158,16 @@ function App() {
   return (
     <div className="min-h-screen bg-bg text-text font-body antialiased">
       <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
-        <div className="mx-auto max-w-[1220px] rounded-[14px] border border-white/[0.15] bg-[#1a1a1d]/15 px-4 py-3 backdrop-blur-[10px] backdrop-brightness-[0.91] backdrop-saturate-[0.4]">
-          <div className="flex items-center justify-between gap-4">
-            <a href="#inicio" className="flex items-center gap-3" aria-label="Leolocs início">
-              <img src={logoWhite} alt="Leolocs logo" className="h-7 w-30 object-contain" />
+        <div className="mx-auto max-w-[1220px] rounded-[14px] border border-white/[0.15] bg-[#1a1a1d]/15 px-8 py-3 backdrop-blur-[10px] backdrop-brightness-[0.91] backdrop-saturate-[0.4]">
+          <div className="flex items-center gap-6">
+            <a href="#inicio" className="flex shrink-0 items-center gap-3" aria-label="Leolocs início">
+              <img src={logoWhite} alt="Leolocs logo" width="676" height="132" className="block h-7 w-[143px] object-contain" />
             </a>
 
-            <nav className="hidden items-center gap-8 md:flex">
+            <nav aria-label="Navegação principal" className="ml-auto hidden items-center gap-8 md:flex">
               {navItems.map((item) => (
                 <a
-                  key={item.href}
+                  key={item.label}
                   href={item.href}
                   className="relative text-sm font-semibold text-white/70 transition-colors hover:text-brand"
                 >
@@ -251,7 +191,7 @@ function App() {
               type="button"
               aria-label="Abrir menu"
               onClick={() => setMobileOpen((prev) => !prev)}
-              className="rounded-full border border-white/10 bg-white/5 p-2 text-white md:hidden"
+              className="ml-auto rounded-full border border-white/10 bg-white/5 p-2 text-white md:hidden"
             >
               {mobileOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
@@ -261,7 +201,7 @@ function App() {
             <div className="mt-4 space-y-3 border-t border-white/10 pt-4 md:hidden">
               {navItems.map((item) => (
                 <a
-                  key={item.href}
+                  key={item.label}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
                   className="block text-sm font-medium text-white/80 hover:text-brand"
@@ -728,7 +668,11 @@ function App() {
               <div className="rounded-[18px] border border-white/10 bg-[radial-gradient(circle_at_top_left,_rgba(189,20,20,0.18),_transparent_35%),linear-gradient(135deg,#1b1b1d,#121214)] p-4">
                 <img
                   src={profileImage}
-                  alt="Leonardo Leolocs"
+                  alt="Leonardo, fundador da Leolocs"
+                  width="1573"
+                  height="2048"
+                  loading="lazy"
+                  decoding="async"
                   className="h-[500px] w-full rounded-[14px] object-cover object-center"
                 />
               </div>
@@ -767,13 +711,15 @@ function App() {
                 <div key={item.question} className="rounded-[18px] border border-border bg-card overflow-hidden">
                   <button
                     type="button"
+                    aria-controls={`faq-answer-${index}`}
+                    aria-expanded={open}
                     onClick={() => setOpenFaq(open ? null : index)}
                     className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
                   >
                     <span className="text-lg font-bold text-white">{item.question}</span>
                     <ChevronDown className={`transition ${open ? 'rotate-180 text-brand' : 'text-white/60'}`} size={20} />
                   </button>
-                  {open && <div className="border-t border-white/10 px-5 py-4 text-base leading-7 text-muted">{item.answer}</div>}
+                  {open && <div id={`faq-answer-${index}`} className="border-t border-white/10 px-5 py-4 text-base leading-7 text-muted">{item.answer}</div>}
                 </div>
               );
             })}
@@ -804,10 +750,10 @@ function App() {
       </main>
 
       <footer id="contato" className="border-t border-white/10 bg-[#0E0E10]">
-        <div className="mx-auto grid max-w-[1220px] gap-10 px-4 py-12 md:grid-cols-2 xl:grid-cols-5">
-          <div className="xl:col-span-2">
-            <div className="flex items-center gap-3">
-              <img src={logoWhite} alt="Leolocs logo" className="h-8 w-30 object-contain" />
+        <div className="mx-auto grid max-w-[1220px] justify-items-start gap-10 px-6 py-12 md:grid-cols-2 xl:grid-cols-5">
+          <div className="justify-self-start xl:col-span-2">
+            <div className="flex items-center justify-start gap-3">
+              <img src={logoWhite} alt="Leolocs logo" width="676" height="132" className="block h-8 w-[163px] object-contain" />
             </div>
             <p className="mt-5 max-w-[420px] text-base leading-7 text-muted">
               Design e desenvolvimento de experiências digitais para negócios que querem construir uma presença mais profissional.
@@ -818,7 +764,7 @@ function App() {
             <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-brand">Navegação</h3>
             <ul className="mt-5 space-y-3 text-sm text-white/75">
               {navItems.map((item) => (
-                <li key={item.href}><a href={item.href} className="hover:text-brand">{item.label}</a></li>
+                <li key={item.label}><a href={item.href} className="hover:text-brand">{item.label}</a></li>
               ))}
               <li><a href="#contato" className="hover:text-brand">Contato</a></li>
             </ul>
@@ -847,8 +793,8 @@ function App() {
         <div className="mx-auto flex max-w-[1220px] flex-col gap-5 border-t border-white/10 px-4 py-6 md:flex-row md:items-center md:justify-between">
           <div className="text-sm text-muted">© 2026 Leolocs. Todos os direitos reservados. | CNPJ 65.870.050/0001-75</div>
           <div className="flex items-center gap-4 text-white/70">
-            <a href="#" className="hover:text-brand">Política de Privacidade</a>
-            <a href="#" className="hover:text-brand">Termos de Uso</a>
+            <span className="text-white/50">Política de Privacidade</span>
+            <span className="text-white/50">Termos de Uso</span>
             <div className="flex items-center gap-3">
               <a href="https://www.behance.net/leolocs" className="text-white/70 transition hover:text-brand" aria-label="Behance"><SiBehance className="h-4 w-4" /></a>
               <a href="https://www.linkedin.com/in/leolocs" className="text-white/70 transition hover:text-brand" aria-label="LinkedIn"><FaLinkedinIn className="h-4 w-4" /></a>
