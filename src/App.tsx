@@ -218,7 +218,7 @@ function App() {
   return (
     <div className="min-h-screen bg-bg text-text font-body antialiased">
       <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
-        <div className="mx-auto max-w-[1220px] rounded-[14px] border border-border bg-[#1a1a1d]/70 px-4 py-3 backdrop-blur-xl">
+        <div className="mx-auto max-w-[1220px] rounded-[14px] border border-white/[0.15] bg-[#1a1a1d]/15 px-4 py-3 backdrop-blur-[10px] backdrop-brightness-[0.91] backdrop-saturate-[0.4]">
           <div className="flex items-center justify-between gap-4">
             <a href="#inicio" className="flex items-center gap-3" aria-label="Leolocs início">
               <img src={logoWhite} alt="Leolocs logo" className="h-7 w-30 object-contain" />
