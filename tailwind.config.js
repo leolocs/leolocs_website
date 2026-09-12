@@ -11,7 +11,7 @@ export default {
         text: '#F5F5F3',
         muted: '#AAA9AD',
         brand: '#BD1414',
-        brandHover: '#BD1414',
+        brandText: '#DE1717',
         border: 'rgba(255,255,255,0.10)',
       },
       borderRadius: {

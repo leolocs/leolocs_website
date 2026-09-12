@@ -12,6 +12,7 @@ import {
 import { SiBehance, SiGithub } from 'react-icons/si';
 import { FaLinkedinIn } from 'react-icons/fa';
 import { useState } from 'react';
+import DotField from './components/DotField';
 import profileImage from './assets/leolocs-profile.webp';
 import logoWhite from './assets/leolocs-logo-white.webp';
 
@@ -154,6 +155,22 @@ const whatsappBase = 'https://wa.me/5585999893938';
 function App() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [profileTilt, setProfileTilt] = useState({ x: 0, y: 0 });
+
+  function handleProfilePointerMove(event: React.PointerEvent<HTMLDivElement>) {
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const pointerX = (event.clientX - bounds.left) / bounds.width - 0.5;
+    const pointerY = (event.clientY - bounds.top) / bounds.height - 0.5;
+
+    setProfileTilt({
+      x: pointerY * -8,
+      y: pointerX * 8,
+    });
+  }
+
+  function resetProfileTilt() {
+    setProfileTilt({ x: 0, y: 0 });
+  }
 
   return (
     <div className="min-h-screen bg-bg text-text font-body antialiased">
@@ -169,7 +186,7 @@ function App() {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="relative text-sm font-semibold text-white/70 transition-colors hover:text-brand"
+                  className="relative text-sm font-semibold text-white/70 transition-colors hover:text-brandText"
                 >
                   <span className="after:absolute after:-bottom-2 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-brand after:transition-transform hover:after:scale-x-100">
                     {item.label}
@@ -181,7 +198,7 @@ function App() {
             <div className="hidden md:block">
               <a
                 href={`${whatsappBase}?text=${encodeURIComponent('Olá! Acessei o site da Leolocs e gostaria de conversar sobre um projeto.')}`}
-                className="inline-flex items-center gap-2 rounded-full bg-brand px-5 py-2.5 text-xs font-bold tracking-[0.12em] text-white transition hover:bg-brandHover"
+                className="inline-flex items-center gap-2 rounded-full bg-brand px-5 py-2.5 text-xs font-bold tracking-[0.12em] text-white transition hover:bg-brand"
               >
                 SOLICITAR ORÇAMENTO
               </a>
@@ -204,7 +221,7 @@ function App() {
                   key={item.label}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block text-sm font-medium text-white/80 hover:text-brand"
+                  className="block text-sm font-medium text-white/80 hover:text-brandText"
                 >
                   {item.label}
                 </a>
@@ -224,16 +241,32 @@ function App() {
         <section className="relative overflow-hidden pt-32 md:pt-40">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(189,20,20,0.18),_transparent_35%)]" />
           <div className="absolute inset-0 bg-grid bg-[size:36px_36px] opacity-20" />
-          <div className="relative mx-auto grid max-w-[1220px] gap-12 px-4 pb-16 pt-8 md:grid-cols-[1.1fr_0.9fr] md:items-center md:pb-20">
-            <div>
-              <h1 className="max-w-[620px] text-4xl font-black leading-[1.05] tracking-[-0.06em] text-white md:text-6xl">
+          <DotField
+            aria-hidden="true"
+            className="z-0 opacity-50"
+            dotRadius={1.5}
+            dotSpacing={20}
+            bulgeStrength={32}
+            glowRadius={120}
+            sparkle={false}
+            waveAmplitude={3}
+            cursorRadius={260}
+            cursorForce={0.07}
+            bulgeOnly={false}
+            gradientFrom="rgba(255, 225, 225, 0.8)"
+            gradientTo="#c8c8c8"
+            glowColor="#350000"
+          />
+          <div className="relative mx-auto flex max-w-[1220px] justify-center px-4 pb-16 pt-8 text-center md:pb-20">
+            <div className="flex max-w-[850px] flex-col items-center">
+              <h1 className="max-w-[850px] text-4xl font-black leading-[1.05] tracking-[-0.06em] text-white md:text-6xl">
                 Sites profissionais que valorizam seu negócio e facilitam o contato com novos clientes.
               </h1>
-              <p className="mt-6 max-w-[620px] text-lg leading-8 text-muted">
+              <p className="mt-6 max-w-[720px] text-lg leading-8 text-muted">
                 Crio sites e landing pages modernos, rápidos e estratégicos para empresas e profissionais que querem transmitir mais credibilidade, apresentar seus serviços com clareza e transformar visitantes em possíveis clientes.
               </p>
 
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
                 <a
                   href={`${whatsappBase}?text=${encodeURIComponent('Olá! Acessei o site da Leolocs e gostaria de conversar sobre um projeto.')}`}
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-brand bg-transparent px-6 py-3.5 text-sm font-bold tracking-[0.04em] text-white transition hover:bg-brand hover:text-white"
@@ -242,79 +275,16 @@ function App() {
                 </a>
                 <a
                   href="#servicos"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/0 px-6 py-3.5 text-sm font-bold tracking-[0.12em] text-white transition hover:border-brand/50 hover:text-brand"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/0 px-6 py-3.5 text-sm font-bold tracking-[0.12em] text-white transition hover:border-brand/50 hover:text-brandText"
                 >
                   Como funciona <ArrowUpRight size={16} />
                 </a>
               </div>
 
-              <div className="mt-10 flex flex-wrap gap-5 text-sm text-white/80">
-                <span className="inline-flex items-center gap-2"><BadgeCheck className="text-brand" size={16} /> Projeto sob medida</span>
-                <span className="inline-flex items-center gap-2"><BadgeCheck className="text-brand" size={16} /> Performance e responsividade</span>
-                <span className="inline-flex items-center gap-2"><BadgeCheck className="text-brand" size={16} /> 1 ano de suporte incluso</span>
-              </div>
-            </div>
-
-            <div className="relative mx-auto w-full max-w-[560px]">
-              <div className="absolute -left-10 top-8 h-24 w-24 rounded-full bg-brand/20 blur-3xl" />
-              <div className="absolute -right-10 bottom-8 h-28 w-28 rounded-full bg-brand/15 blur-3xl" />
-              <div className="relative overflow-hidden rounded-[24px] border border-white/10 bg-[#141416]/80 p-4">
-                <div className="mb-4 flex items-center justify-between rounded-[12px] border border-white/10 bg-[#1b1b1d] px-4 py-3">
-                  <div className="flex gap-2">
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#BD1414]" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
-                  </div>
-                  <span className="text-[10px] uppercase tracking-[0.18em] text-muted">leolocs</span>
-                </div>
-                <div className="grid gap-4 md:grid-cols-[1.2fr_0.8fr]">
-                  <div className="rounded-[18px] border border-white/10 bg-[#1a1a1d] p-4">
-                    <div className="mb-4 h-48 rounded-[12px] bg-[radial-gradient(circle_at_top,_rgba(189,20,20,0.25),_transparent_30%),linear-gradient(135deg,#17171a,#111113)] p-3">
-                      <div className="flex h-full items-end rounded-[10px] border border-white/10 bg-white/5 p-3">
-                        <div className="w-full rounded-[10px] border border-brand/40 bg-[#121215] p-3">
-                          <div className="mb-2 h-2 w-20 rounded-full bg-brand/80" />
-                          <div className="mb-2 h-2 w-32 rounded-full bg-white/15" />
-                          <div className="mb-3 h-20 rounded-[8px] bg-[linear-gradient(135deg,rgba(255,255,255,0.06),rgba(189,20,20,0.18))]" />
-                          <div className="flex gap-2">
-                            <span className="h-8 flex-1 rounded-md bg-white/5" />
-                            <span className="h-8 flex-1 rounded-md bg-brand/40" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <p className="text-xs uppercase tracking-[0.18em] text-brand">Projeto destaque</p>
-                    <h2 className="mt-2 text-xl font-bold text-white">Presença digital que converte</h2>
-                  </div>
-                  <div className="space-y-4">
-                    <div className="rounded-[18px] border border-white/10 bg-[#1a1a1d] p-4">
-                      <div className="mb-3 flex items-center justify-between">
-                        <p className="text-[10px] uppercase tracking-[0.18em] text-muted">Conversão</p>
-                        <span className="rounded-full bg-brand/15 px-2 py-1 text-[10px] font-bold text-brand">+48%</span>
-                      </div>
-                      <div className="h-20 rounded-xl bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(189,20,20,0.12))] p-3">
-                        <div className="flex h-full items-end justify-between gap-2">
-                          <span className="w-2 rounded-full bg-white/20" style={{ height: '35%' }} />
-                          <span className="w-2 rounded-full bg-white/20" style={{ height: '60%' }} />
-                          <span className="w-2 rounded-full bg-white/20" style={{ height: '45%' }} />
-                          <span className="w-2 rounded-full bg-brand/90" style={{ height: '90%' }} />
-                          <span className="w-2 rounded-full bg-brand/90" style={{ height: '85%' }} />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="rounded-[18px] border border-white/10 bg-[#1a1a1d] p-4">
-                      <div className="mb-3 flex items-center gap-2 text-white">
-                        <MonitorSmartphone className="text-brand" size={18} />
-                        <span className="text-sm font-semibold">Responsivo</span>
-                      </div>
-                      <div className="grid grid-cols-2 gap-2">
-                        <div className="h-16 rounded-lg bg-white/5" />
-                        <div className="h-16 rounded-lg bg-brand/20" />
-                        <div className="h-16 rounded-lg bg-white/5" />
-                        <div className="h-16 rounded-lg bg-transparent border border-white/10" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="mt-10 flex flex-wrap justify-center gap-5 text-sm text-white/80">
+                <span className="inline-flex items-center gap-2"><BadgeCheck className="text-brandText" size={16} /> Projeto sob medida</span>
+                <span className="inline-flex items-center gap-2"><BadgeCheck className="text-brandText" size={16} /> Performance e responsividade</span>
+                <span className="inline-flex items-center gap-2"><BadgeCheck className="text-brandText" size={16} /> 1 ano de suporte incluso</span>
               </div>
             </div>
           </div>
@@ -332,15 +302,15 @@ function App() {
             {whySiteItems.map((item, index) => (
               <article key={item.label} className="rounded-[18px] border border-border bg-card p-6 md:p-8">
                 <div className="flex items-start gap-4">
-                  <span className="mt-1 text-sm font-bold text-brand">0{index + 1}</span>
+                  <span className="mt-1 text-sm font-bold text-brandText">0{index + 1}</span>
                   <div className="min-w-0">
-                    <div className="text-xs font-bold uppercase tracking-[0.18em] text-brand">{item.label}</div>
+                    <div className="text-xs font-bold uppercase tracking-[0.18em] text-brandText">{item.label}</div>
                     <h3 className="mt-3 max-w-[800px] text-2xl font-bold leading-tight text-white md:text-3xl">{item.title}</h3>
                     <div className="mt-5 max-w-[900px] space-y-4 text-base leading-7 text-muted">
                       {item.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                     </div>
                     {item.list && (
-                      <ul className="mt-5 list-disc space-y-2 pl-5 text-base leading-7 text-muted marker:text-brand">
+                      <ul className="mt-5 list-disc space-y-2 pl-5 text-base leading-7 text-muted marker:text-brandText">
                         {item.list.map((listItem) => <li key={listItem}>{listItem}</li>)}
                       </ul>
                     )}
@@ -353,7 +323,7 @@ function App() {
         </section>
 
         <section id="servicos" className="mx-auto max-w-[1220px] px-4 py-20">
-          <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brand">COMO FUNCIONA</div>
+          <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brandText">COMO FUNCIONA</div>
           <h2 className="max-w-[900px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
             Veja como é o processo do desenvolvimento do seu site:
           </h2>
@@ -456,15 +426,15 @@ function App() {
             ].map((step) => (
               <article key={step.number} className="rounded-[20px] border border-border bg-card p-6 md:p-8">
                 <div className="flex items-start gap-4">
-                  <span className="text-sm font-bold text-brand">{step.number}</span>
+                  <span className="text-sm font-bold text-brandText">{step.number}</span>
                   <div className="min-w-0">
-                    <div className="text-xs font-bold uppercase tracking-[0.16em] text-brand">{step.label}</div>
+                    <div className="text-xs font-bold uppercase tracking-[0.16em] text-brandText">{step.label}</div>
                     <h3 className="mt-3 text-2xl font-bold leading-tight text-white md:text-3xl">{step.title}</h3>
                     <div className="mt-5 max-w-[920px] space-y-4 text-base leading-7 text-muted">
                       {step.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                     </div>
                     {step.list && (
-                      <ul className="mt-4 list-disc space-y-2 pl-5 text-base leading-7 text-muted marker:text-brand">
+                      <ul className="mt-4 list-disc space-y-2 pl-5 text-base leading-7 text-muted marker:text-brandText">
                         {step.list.map((item) => <li key={item}>{item}</li>)}
                       </ul>
                     )}
@@ -476,13 +446,13 @@ function App() {
           </div>
 
           <article className="mt-5 rounded-[20px] border border-brand/30 bg-brand/5 p-6 md:p-8">
-            <div className="text-xs font-bold uppercase tracking-[0.16em] text-brand">O QUE NÃO ESTÁ INCLUÍDO NA MANUTENÇÃO</div>
+            <div className="text-xs font-bold uppercase tracking-[0.16em] text-brandText">O QUE NÃO ESTÁ INCLUÍDO NA MANUTENÇÃO</div>
             <h3 className="mt-3 text-2xl font-bold leading-tight text-white md:text-3xl">Novas funcionalidades são tratadas como novas demandas de desenvolvimento.</h3>
             <p className="mt-5 max-w-[920px] text-base leading-7 text-muted">
               O plano de continuidade não contempla alterações que exijam um novo trabalho de desenvolvimento.
             </p>
             <p className="mt-4 text-base leading-7 text-muted">Mudanças como:</p>
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-base leading-7 text-muted marker:text-brand">
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-base leading-7 text-muted marker:text-brandText">
               <li>criação de novas funcionalidades;</li>
               <li>novas páginas complexas;</li>
               <li>integrações com novos sistemas;</li>
@@ -566,8 +536,8 @@ function App() {
             ].map((benefit) => (
               <article key={benefit.number} className="rounded-[18px] border border-border bg-card p-6 transition hover:-translate-y-1 hover:border-brand/40">
                 <div className="mb-5 flex items-center justify-between">
-                  <span className="text-sm font-bold text-brand">{benefit.number}</span>
-                  <span className="text-xs font-bold uppercase tracking-[0.16em] text-brand">{benefit.title}</span>
+                  <span className="text-sm font-bold text-brandText">{benefit.number}</span>
+                  <span className="text-xs font-bold uppercase tracking-[0.16em] text-brandText">{benefit.title}</span>
                 </div>
                 <h3 className="text-xl font-bold leading-tight text-white">{benefit.intro}</h3>
                 <div className="mt-5 space-y-4 text-base leading-7 text-muted">
@@ -581,7 +551,7 @@ function App() {
 
         {showProjectsSection && (
           <section id="projetos" className="mx-auto max-w-[1220px] px-4 py-20">
-            <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brand">TRABALHOS</div>
+            <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brandText">TRABALHOS</div>
             <h2 className="max-w-[760px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
               Projetos criados para negócios reais.
             </h2>
@@ -602,7 +572,7 @@ function App() {
                     </div>
                   </div>
                   <div className="p-5">
-                    <div className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand">{project.type}</div>
+                    <div className="text-[10px] font-bold uppercase tracking-[0.16em] text-brandText">{project.type}</div>
                     <h3 className="mt-3 text-2xl font-bold text-white">{project.name}</h3>
                     <p className="mt-3 text-base leading-7 text-muted">{project.text}</p>
                     <div className="mt-5 flex flex-wrap gap-2">
@@ -612,7 +582,7 @@ function App() {
                         </span>
                       ))}
                     </div>
-                    <a href="#contato" className="mt-6 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.14em] text-brand">
+                    <a href="#contato" className="mt-6 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.14em] text-brandText">
                       VER PROJETO <ChevronRight size={16} />
                     </a>
                   </div>
@@ -635,7 +605,7 @@ function App() {
 
         {showTrustSection && (
           <section className="mx-auto max-w-[1220px] px-4 py-20">
-            <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brand">CONFIANÇA</div>
+            <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brandText">CONFIANÇA</div>
             <h2 className="max-w-[760px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
               A experiência de quem já confiou no meu trabalho.
             </h2>
@@ -646,7 +616,7 @@ function App() {
                 ['“O site ficou profissional, moderno e funcional. Sem dúvida, uma decisão que trouxe mais credibilidade para a empresa.”', 'Ana Paula', 'Medição & Co.', 'Fundadora'],
               ].map(([quote, name, company, role]) => (
                 <div key={name} className="rounded-[20px] border border-border bg-card p-6">
-                  <div className="mb-4 flex items-center gap-2 text-brand">
+                  <div className="mb-4 flex items-center gap-2 text-brandText">
                     <CircleDashed size={18} />
                     <CircleDashed size={18} />
                     <CircleDashed size={18} />
@@ -664,22 +634,27 @@ function App() {
 
         <section id="sobre" className="mx-auto max-w-[1220px] px-4 py-20">
           <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="overflow-hidden rounded-[24px] border border-border bg-card p-4">
-              <div className="rounded-[18px] border border-white/10 bg-[radial-gradient(circle_at_top_left,_rgba(189,20,20,0.18),_transparent_35%),linear-gradient(135deg,#1b1b1d,#121214)] p-4">
-                <img
-                  src={profileImage}
-                  alt="Leonardo, fundador da Leolocs"
-                  width="1573"
-                  height="2048"
-                  loading="lazy"
-                  decoding="async"
-                  className="h-[500px] w-full rounded-[14px] object-cover object-center"
-                />
-              </div>
+            <div
+              onPointerMove={handleProfilePointerMove}
+              onPointerLeave={resetProfileTilt}
+              style={{
+                transform: `perspective(900px) rotateX(${profileTilt.x}deg) rotateY(${profileTilt.y}deg)`,
+              }}
+              className="profile-tilt overflow-hidden rounded-[24px] border border-border bg-card"
+            >
+              <img
+                src={profileImage}
+                alt="Leonardo, fundador da Leolocs"
+                width="1573"
+                height="2048"
+                loading="lazy"
+                decoding="async"
+                className="h-[500px] w-full object-cover object-center"
+              />
             </div>
 
             <div>
-              <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brand">SOBRE MIM</div>
+              <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brandText">SOBRE MIM</div>
               <h2 className="text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
                 Design, tecnologia e estratégia trabalhando para o mesmo objetivo.
               </h2>
@@ -691,7 +666,7 @@ function App() {
               </div>
               <a
                 href={`${whatsappBase}?text=${encodeURIComponent('Olá! Acessei o site da Leolocs e gostaria de conversar sobre um projeto.')}`}
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-bold tracking-[0.12em] text-white transition hover:bg-brandHover"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-bold tracking-[0.12em] text-white transition hover:bg-brand"
               >
                 SOLICITAR ORÇAMENTO <ArrowRight size={16} />
               </a>
@@ -717,9 +692,17 @@ function App() {
                     className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
                   >
                     <span className="text-lg font-bold text-white">{item.question}</span>
-                    <ChevronDown className={`transition ${open ? 'rotate-180 text-brand' : 'text-white/60'}`} size={20} />
+                    <ChevronDown className={`transition ${open ? 'rotate-180 text-brandText' : 'text-white/60'}`} size={20} />
                   </button>
-                  {open && <div id={`faq-answer-${index}`} className="border-t border-white/10 px-5 py-4 text-base leading-7 text-muted">{item.answer}</div>}
+                  <div
+                    id={`faq-answer-${index}`}
+                    aria-hidden={!open}
+                    className={`faq-answer ${open ? 'faq-answer-open' : ''}`}
+                  >
+                    <div className="min-h-0 overflow-hidden border-t border-white/10 px-5 py-1 text-base leading-7 text-muted">
+                      {item.answer}
+                    </div>
+                  </div>
                 </div>
               );
             })}
@@ -728,7 +711,7 @@ function App() {
 
         <section className="mx-auto max-w-[1220px] px-4 py-20">
           <div className="rounded-[28px] border border-brand/25 bg-[radial-gradient(circle_at_top,_rgba(189,20,20,0.2),_transparent_35%),linear-gradient(180deg,#1d1d20,#151518)] p-8 md:p-12">
-            <div className="text-xs font-bold uppercase tracking-[0.2em] text-brand">VAMOS COMEÇAR?</div>
+            <div className="text-xs font-bold uppercase tracking-[0.2em] text-brandText">VAMOS COMEÇAR?</div>
             <h2 className="mt-5 max-w-[850px] text-3xl font-black tracking-[-0.05em] text-white md:text-6xl">
               Seu próximo cliente pode estar procurando exatamente pelo que sua empresa oferece.
             </h2>
@@ -761,31 +744,31 @@ function App() {
           </div>
 
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-brand">Navegação</h3>
+            <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-brandText">Navegação</h3>
             <ul className="mt-5 space-y-3 text-sm text-white/75">
               {navItems.map((item) => (
-                <li key={item.label}><a href={item.href} className="hover:text-brand">{item.label}</a></li>
+                <li key={item.label}><a href={item.href} className="hover:text-brandText">{item.label}</a></li>
               ))}
-              <li><a href="#contato" className="hover:text-brand">Contato</a></li>
+              <li><a href="#contato" className="hover:text-brandText">Contato</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-brand">Serviços</h3>
+            <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-brandText">Serviços</h3>
             <ul className="mt-5 space-y-3 text-sm text-white/75">
-              <li><a href="#servicos" className="hover:text-brand">Landing Pages</a></li>
-              <li><a href="#servicos" className="hover:text-brand">Sites Institucionais</a></li>
-              <li><a href="#servicos" className="hover:text-brand">UI/UX Design</a></li>
-              <li><a href="#servicos" className="hover:text-brand">Manutenção</a></li>
+              <li><a href="#servicos" className="hover:text-brandText">Landing Pages</a></li>
+              <li><a href="#servicos" className="hover:text-brandText">Sites Institucionais</a></li>
+              <li><a href="#servicos" className="hover:text-brandText">UI/UX Design</a></li>
+              <li><a href="#servicos" className="hover:text-brandText">Manutenção</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-brand">Contato</h3>
+            <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-brandText">Contato</h3>
             <ul className="mt-5 space-y-3 text-sm text-white/75">
-              <li><a href={whatsappBase} className="hover:text-brand">WhatsApp</a></li>
-              <li><a href="https://t.me/leolocs" className="hover:text-brand">Telegram</a></li>
-              <li><a href="mailto:leolocs04@gmail.com" className="hover:text-brand">E-mail</a></li>
+              <li><a href={whatsappBase} className="hover:text-brandText">WhatsApp</a></li>
+              <li><a href="https://t.me/leolocs" className="hover:text-brandText">Telegram</a></li>
+              <li><a href="mailto:leolocs04@gmail.com" className="hover:text-brandText">E-mail</a></li>
             </ul>
           </div>
         </div>
@@ -796,9 +779,9 @@ function App() {
             <span className="text-white/50">Política de Privacidade</span>
             <span className="text-white/50">Termos de Uso</span>
             <div className="flex items-center gap-3">
-              <a href="https://www.behance.net/leolocs" className="text-white/70 transition hover:text-brand" aria-label="Behance"><SiBehance className="h-4 w-4" /></a>
-              <a href="https://www.linkedin.com/in/leolocs" className="text-white/70 transition hover:text-brand" aria-label="LinkedIn"><FaLinkedinIn className="h-4 w-4" /></a>
-              <a href="https://github.com/leolocs" className="text-white/70 transition hover:text-brand" aria-label="GitHub"><SiGithub className="h-4 w-4" /></a>
+              <a href="https://www.behance.net/leolocs" className="text-white/70 transition hover:text-brandText" aria-label="Behance"><SiBehance aria-hidden="true" className="h-4 w-4" /></a>
+              <a href="https://www.linkedin.com/in/leolocs" className="text-white/70 transition hover:text-brandText" aria-label="LinkedIn"><FaLinkedinIn aria-hidden="true" className="h-4 w-4" /></a>
+              <a href="https://github.com/leolocs" className="text-white/70 transition hover:text-brandText" aria-label="GitHub"><SiGithub aria-hidden="true" className="h-4 w-4" /></a>
             </div>
           </div>
         </div>
