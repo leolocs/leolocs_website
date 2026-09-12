@@ -11,7 +11,8 @@ import {
 } from 'lucide-react';
 import { SiBehance, SiGithub } from 'react-icons/si';
 import { FaLinkedinIn } from 'react-icons/fa';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import Lenis from 'lenis';
 import DotField from './components/DotField';
 import profileImage from './assets/leolocs-profile.webp';
 import logoWhite from './assets/leolocs-logo-white.webp';
@@ -157,6 +158,54 @@ function App() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [profileTilt, setProfileTilt] = useState({ x: 0, y: 0 });
 
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const lenis = new Lenis({
+      anchors: true,
+      smoothWheel: true,
+      lerp: 0.1,
+    });
+
+    let animationFrameId = 0;
+    const updateScroll = (time: number) => {
+      lenis.raf(time);
+      animationFrameId = requestAnimationFrame(updateScroll);
+    };
+
+    animationFrameId = requestAnimationFrame(updateScroll);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      lenis.destroy();
+    };
+  }, []);
+
+  useEffect(() => {
+    const fadeElements = document.querySelectorAll<HTMLElement>('.fade-in');
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      fadeElements.forEach((element) => element.classList.add('visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 },
+    );
+
+    fadeElements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
+
   function handleProfilePointerMove(event: React.PointerEvent<HTMLDivElement>) {
     const bounds = event.currentTarget.getBoundingClientRect();
     const pointerX = (event.clientX - bounds.left) / bounds.width - 0.5;
@@ -238,7 +287,7 @@ function App() {
       </header>
 
       <main id="inicio" className="scroll-smooth">
-        <section className="relative overflow-hidden pt-32 md:pt-40">
+        <section className="fade-in relative overflow-hidden pt-32 md:pt-40">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(189,20,20,0.18),_transparent_35%)]" />
           <div className="absolute inset-0 bg-grid bg-[size:36px_36px] opacity-20" />
           <DotField
@@ -290,7 +339,7 @@ function App() {
           </div>
         </section>
 
-        <section className="relative mx-auto max-w-[1220px] px-4 py-20">
+        <section className="fade-in relative mx-auto max-w-[1220px] px-4 py-20">
           <h2 className="max-w-[900px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
             Por que você deveria ter um site?
           </h2>
@@ -322,7 +371,7 @@ function App() {
           </div>
         </section>
 
-        <section id="servicos" className="mx-auto max-w-[1220px] px-4 py-20">
+        <section id="servicos" className="fade-in mx-auto max-w-[1220px] px-4 py-20">
           <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brandText">COMO FUNCIONA</div>
           <h2 className="max-w-[900px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
             Veja como é o processo do desenvolvimento do seu site:
@@ -467,7 +516,7 @@ function App() {
           </article>
         </section>
 
-        <section className="mx-auto max-w-[1220px] px-4 py-20">
+        <section className="fade-in mx-auto max-w-[1220px] px-4 py-20">
           <h2 className="max-w-[900px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
             O que você ganha ao desenvolver seu projeto comigo:
           </h2>
@@ -550,7 +599,7 @@ function App() {
         </section>
 
         {showProjectsSection && (
-          <section id="projetos" className="mx-auto max-w-[1220px] px-4 py-20">
+          <section id="projetos" className="fade-in mx-auto max-w-[1220px] px-4 py-20">
             <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brandText">TRABALHOS</div>
             <h2 className="max-w-[760px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
               Projetos criados para negócios reais.
@@ -592,7 +641,7 @@ function App() {
           </section>
         )}
 
-        <section className="mx-auto max-w-[1220px] px-4 py-20">
+        <section className="fade-in mx-auto max-w-[1220px] px-4 py-20">
           <div className="rounded-[24px] border border-border bg-panel p-8 md:p-12">
             <p className="text-balance text-3xl font-black leading-tight tracking-[-0.05em] text-white md:text-5xl">
               Seu cliente não precisa entender de tecnologia. Ele precisa entender por que deveria escolher sua empresa.
@@ -604,7 +653,7 @@ function App() {
         </section>
 
         {showTrustSection && (
-          <section className="mx-auto max-w-[1220px] px-4 py-20">
+          <section className="fade-in mx-auto max-w-[1220px] px-4 py-20">
             <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brandText">CONFIANÇA</div>
             <h2 className="max-w-[760px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
               A experiência de quem já confiou no meu trabalho.
@@ -632,7 +681,7 @@ function App() {
           </section>
         )}
 
-        <section id="sobre" className="mx-auto max-w-[1220px] px-4 py-20">
+        <section id="sobre" className="fade-in mx-auto max-w-[1220px] px-4 py-20">
           <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
             <div
               onPointerMove={handleProfilePointerMove}
@@ -674,7 +723,7 @@ function App() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-[1220px] px-4 py-20">
+        <section className="fade-in mx-auto max-w-[1220px] px-4 py-20">
           <h2 className="max-w-[760px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
             Dúvidas Frequentes
           </h2>
@@ -709,7 +758,7 @@ function App() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-[1220px] px-4 py-20">
+        <section className="fade-in mx-auto max-w-[1220px] px-4 py-20">
           <div className="rounded-[28px] border border-brand/25 bg-[radial-gradient(circle_at_top,_rgba(189,20,20,0.2),_transparent_35%),linear-gradient(180deg,#1d1d20,#151518)] p-8 md:p-12">
             <div className="text-xs font-bold uppercase tracking-[0.2em] text-brandText">VAMOS COMEÇAR?</div>
             <h2 className="mt-5 max-w-[850px] text-3xl font-black tracking-[-0.05em] text-white md:text-6xl">

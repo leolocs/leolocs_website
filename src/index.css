@@ -31,7 +31,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: 96px;
 }
 
@@ -57,6 +56,17 @@ img {
   will-change: transform;
 }
 
+.fade-in {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .faq-answer {
   display: grid;
   grid-template-rows: 0fr;
@@ -70,6 +80,12 @@ img {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
   .faq-answer {
     transition: none;
   }
