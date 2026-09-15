@@ -19,9 +19,10 @@ import logoWhite from './assets/leolocs-logo-white.webp';
 
 const navItems = [
   { label: 'Início', href: '#inicio' },
-  { label: 'Serviços', href: '#servicos' },
-  { label: 'Processo', href: '#servicos' },
+  { label: 'Benefícios', href: '#beneficios' },
+  { label: 'Como funciona', href: '#processo' },
   { label: 'Sobre', href: '#sobre' },
+  { label: 'FAQ', href: '#faq' },
 ];
 
 const showProjectsSection = false;
@@ -249,7 +250,7 @@ function App() {
                 href={`${whatsappBase}?text=${encodeURIComponent('Olá! Acessei o site da Leolocs e gostaria de conversar sobre um projeto.')}`}
                 className="inline-flex items-center gap-2 rounded-full bg-brand px-5 py-2.5 text-xs font-bold tracking-[0.12em] text-white transition hover:bg-brand"
               >
-                SOLICITAR ORÇAMENTO
+                PEDIR MEU SITE
               </a>
             </div>
 
@@ -279,7 +280,7 @@ function App() {
                 href={`${whatsappBase}?text=${encodeURIComponent('Olá! Acessei o site da Leolocs e gostaria de conversar sobre um projeto.')}`}
                 className="mt-2 inline-flex items-center gap-2 rounded-full bg-brand px-4 py-2.5 text-xs font-bold tracking-[0.12em] text-white"
               >
-                SOLICITAR ORÇAMENTO
+                PEDIR MEU SITE
               </a>
             </div>
           )}
@@ -323,7 +324,7 @@ function App() {
                   Conversar sobre meu projeto <ArrowRight size={16} />
                 </a>
                 <a
-                  href="#servicos"
+                  href="#processo"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/0 px-6 py-3.5 text-sm font-bold tracking-[0.12em] text-white transition hover:border-brand/50 hover:text-brandText"
                 >
                   Como funciona <ArrowUpRight size={16} />
@@ -339,7 +340,7 @@ function App() {
           </div>
         </section>
 
-        <section className="fade-in relative mx-auto max-w-[1220px] px-4 py-20">
+        <section id="beneficios" className="fade-in relative mx-auto max-w-[1220px] px-4 py-20">
           <h2 className="max-w-[900px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
             Por que você deveria ter um site?
           </h2>
@@ -371,7 +372,7 @@ function App() {
           </div>
         </section>
 
-        <section id="servicos" className="fade-in mx-auto max-w-[1220px] px-4 py-20">
+        <section id="processo" className="fade-in mx-auto max-w-[1220px] px-4 py-20">
           <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brandText">COMO FUNCIONA</div>
           <h2 className="max-w-[900px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
             Veja como é o processo do desenvolvimento do seu site:
@@ -717,13 +718,13 @@ function App() {
                 href={`${whatsappBase}?text=${encodeURIComponent('Olá! Acessei o site da Leolocs e gostaria de conversar sobre um projeto.')}`}
                 className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-bold tracking-[0.12em] text-white transition hover:bg-brand"
               >
-                SOLICITAR ORÇAMENTO <ArrowRight size={16} />
+                PEDIR MEU SITE <ArrowRight size={16} />
               </a>
             </div>
           </div>
         </section>
 
-        <section className="fade-in mx-auto max-w-[1220px] px-4 py-20">
+        <section id="faq" className="fade-in scroll-mt-28 mx-auto max-w-[1220px] px-4 py-20">
           <h2 className="max-w-[760px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
             Dúvidas Frequentes
           </h2>
@@ -782,7 +783,7 @@ function App() {
       </main>
 
       <footer id="contato" className="border-t border-white/10 bg-[#0E0E10]">
-        <div className="mx-auto grid max-w-[1220px] justify-items-start gap-10 px-6 py-12 md:grid-cols-2 xl:grid-cols-5">
+        <div className="mx-auto grid max-w-[1220px] justify-items-start gap-10 px-6 py-12 md:grid-cols-2 xl:grid-cols-4">
           <div className="justify-self-start xl:col-span-2">
             <div className="flex items-center justify-start gap-3">
               <img src={logoWhite} alt="Leolocs logo" width="676" height="132" className="block h-8 w-[163px] object-contain" />
@@ -803,16 +804,6 @@ function App() {
           </div>
 
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-brandText">Serviços</h3>
-            <ul className="mt-5 space-y-3 text-sm text-white/75">
-              <li><a href="#servicos" className="hover:text-brandText">Landing Pages</a></li>
-              <li><a href="#servicos" className="hover:text-brandText">Sites Institucionais</a></li>
-              <li><a href="#servicos" className="hover:text-brandText">UI/UX Design</a></li>
-              <li><a href="#servicos" className="hover:text-brandText">Manutenção</a></li>
-            </ul>
-          </div>
-
-          <div>
             <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-brandText">Contato</h3>
             <ul className="mt-5 space-y-3 text-sm text-white/75">
               <li><a href={whatsappBase} className="hover:text-brandText">WhatsApp</a></li>
@@ -825,8 +816,6 @@ function App() {
         <div className="mx-auto flex max-w-[1220px] flex-col gap-5 border-t border-white/10 px-4 py-6 md:flex-row md:items-center md:justify-between">
           <div className="text-sm text-muted">© 2026 Leolocs. Todos os direitos reservados. | CNPJ 65.870.050/0001-75</div>
           <div className="flex items-center gap-4 text-white/70">
-            <span className="text-white/50">Política de Privacidade</span>
-            <span className="text-white/50">Termos de Uso</span>
             <div className="flex items-center gap-3">
               <a href="https://www.behance.net/leolocs" className="text-white/70 transition hover:text-brandText" aria-label="Behance"><SiBehance aria-hidden="true" className="h-4 w-4" /></a>
               <a href="https://www.linkedin.com/in/leolocs" className="text-white/70 transition hover:text-brandText" aria-label="LinkedIn"><FaLinkedinIn aria-hidden="true" className="h-4 w-4" /></a>
