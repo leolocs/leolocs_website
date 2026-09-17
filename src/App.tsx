@@ -2,11 +2,17 @@ import {
   ArrowRight,
   ArrowUpRight,
   BadgeCheck,
+  ChartNoAxesCombined,
   ChevronDown,
   ChevronRight,
   CircleDashed,
   Menu,
   MonitorSmartphone,
+  MousePointerClick,
+  PanelsTopLeft,
+  Search,
+  SlidersHorizontal,
+  TrendingUp,
   X,
 } from 'lucide-react';
 import { SiBehance, SiGithub } from 'react-icons/si';
@@ -16,11 +22,13 @@ import Lenis from 'lenis';
 import DotField from './components/DotField';
 import profileImage from './assets/leolocs-profile.webp';
 import logoWhite from './assets/leolocs-logo-white.webp';
+import ProcessSection from './sections/Process';
 
 const navItems = [
   { label: 'Início', href: '#inicio' },
   { label: 'Benefícios', href: '#beneficios' },
   { label: 'Como funciona', href: '#processo' },
+  { label: 'Diferenciais', href: '#diferenciais' },
   { label: 'Sobre', href: '#sobre' },
   { label: 'FAQ', href: '#faq' },
 ];
@@ -58,76 +66,52 @@ const faqItems = [
 
 const whySiteItems = [
   {
-    label: 'AUTORIDADE E CONFIANÇA',
-    title: 'Uma presença profissional fortalece a imagem do seu negócio.',
-    paragraphs: [
-      'Um site bem estruturado, com boa apresentação visual e informações organizadas, ajuda a transmitir mais seriedade e profissionalismo.',
-      'Antes de entrar em contato, muitos clientes pesquisam sobre uma empresa ou profissional. Ter um espaço próprio e bem apresentado pode reforçar a confiança nessa primeira impressão.',
-    ],
-    emphasis: 'Seu site também comunica o nível de cuidado que você tem com o seu negócio.',
+    icon: BadgeCheck,
+    title: 'Autoridade e confiança',
+    highlight: 'Cause uma boa impressão antes mesmo do primeiro contato.',
+    description:
+      'Um site profissional reforça a credibilidade do seu negócio e transmite mais confiança para quem ainda está conhecendo sua empresa.',
+    closing: 'Sua presença digital também comunica o valor do seu trabalho.',
   },
   {
-    label: 'ABERTO 24h',
-    title: 'Seu negócio continua disponível mesmo quando você não está atendendo.',
-    paragraphs: [
-      'O site permite que um potencial cliente conheça seus serviços, veja seus projetos, encontre informações importantes e descubra como entrar em contato a qualquer momento.',
-      'Ele não substitui o atendimento, mas ajuda o visitante a avançar sozinho nas primeiras etapas da decisão.',
-    ],
-    emphasis: 'Enquanto você cuida do seu negócio, seu site continua apresentando o que você oferece.',
+    icon: PanelsTopLeft,
+    title: 'Tudo em um só lugar',
+    highlight: 'Facilite o acesso às informações do seu negócio.',
+    description:
+      'Serviços, diferenciais e formas de contato ficam organizados em um único espaço, sem depender de publicações ou mensagens espalhadas.',
+    closing: 'Seu cliente encontra rapidamente o que precisa.',
   },
   {
-    label: 'BUSCA ORGÂNICA',
-    title: 'Mais uma forma de ser encontrado por quem já procura pelo seu serviço.',
-    paragraphs: [
-      'Com uma estrutura adequada e boas práticas de SEO, seu site pode ser indexado pelo Google e aparecer em pesquisas relacionadas ao seu negócio.',
-      'Isso cria um canal adicional de descoberta além de redes sociais, indicações e anúncios.',
-    ],
-    emphasis: 'Seu site pode aproximar sua empresa de pessoas que já estão procurando exatamente pelo que você oferece.',
+    icon: Search,
+    title: 'Busca orgânica',
+    highlight: 'Seja encontrado por quem já procura pelo que você oferece.',
+    description:
+      'Com uma estrutura adequada e boas práticas de SEO, seu site pode aparecer nas pesquisas do Google relacionadas ao seu negócio.',
+    closing: 'Mais um caminho para potenciais clientes chegarem até você.',
   },
   {
-    label: 'CONTROLE TOTAL',
-    title: 'Sua marca, seu conteúdo e sua experiência do seu jeito.',
-    paragraphs: ['Em um site próprio, você tem muito mais controle sobre como seu negócio é apresentado.'],
-    list: [
-      'quais serviços ganham destaque;',
-      'quais informações aparecem primeiro;',
-      'como os visitantes navegam;',
-      'quais chamadas para ação serão utilizadas;',
-      'como sua identidade visual será aplicada.',
-    ],
-    emphasis: 'Seu site é um espaço construído para representar o seu negócio — não para se encaixar em um formato pronto.',
+    icon: SlidersHorizontal,
+    title: 'Controle total',
+    highlight: 'Sua marca apresentada do seu jeito.',
+    description:
+      'No seu site, você decide o que destacar, como apresentar seus serviços e qual caminho o visitante deve seguir.',
+    closing: 'Um espaço próprio, sem depender das limitações das redes sociais.',
   },
   {
-    label: 'MAIS OPORTUNIDADES DE VENDA',
-    title: 'Facilite o caminho entre interesse e contato.',
-    paragraphs: [
-      'Um site bem organizado pode apresentar seus serviços, responder dúvidas, mostrar diferenciais e conduzir o visitante até uma ação clara, como pedir orçamento ou falar pelo WhatsApp.',
-      'Isso ajuda a reduzir dúvidas durante a decisão e torna o processo de contato mais simples.',
-    ],
-    emphasis: 'Quanto mais fácil for entender sua oferta e dar o próximo passo, menor a chance de perder um potencial cliente por falta de informação.',
+    icon: ChartNoAxesCombined,
+    title: 'Dados e melhorias',
+    highlight: 'Entenda melhor o comportamento dos seus visitantes.',
+    description:
+      'Você pode acompanhar acessos, conteúdos mais visualizados e ações realizadas dentro do site.',
+    closing: 'Use dados reais para identificar oportunidades de melhoria.',
   },
   {
-    label: 'DADOS ÚTEIS',
-    title: 'Entenda melhor como as pessoas utilizam o seu site.',
-    paragraphs: ['Com ferramentas de análise, é possível acompanhar informações como:'],
-    list: [
-      'páginas mais acessadas;',
-      'origem dos visitantes;',
-      'dispositivos utilizados;',
-      'conteúdos com maior interesse;',
-      'cliques em determinados botões;',
-      'caminhos mais utilizados dentro do site.',
-    ],
-    emphasis: 'Em vez de depender apenas de percepção, você passa a ter informações reais sobre como seu site está sendo utilizado.',
-  },
-  {
-    label: 'AQUISIÇÃO MAIS EFICIENTE',
-    title: 'Transforme seu site em um ativo permanente da sua presença digital.',
-    paragraphs: [
-      'Anúncios deixam de gerar tráfego quando o investimento é interrompido. Um site continua disponível e pode receber visitantes por diferentes canais ao longo do tempo.',
-      'Ele também permite concentrar campanhas, conteúdo, SEO, indicações e redes sociais em um único destino.',
-    ],
-    emphasis: 'Isso não elimina custos de divulgação, mas ajuda a aproveitar melhor cada oportunidade de atrair e converter visitantes.',
+    icon: TrendingUp,
+    title: 'Mais oportunidades',
+    highlight: 'Aproveite melhor cada oportunidade de atrair e conquistar novos clientes.',
+    description:
+      'Seu site pode centralizar acessos vindos de anúncios, redes sociais, indicações e pesquisas em um único destino preparado para apresentar seu negócio. Uma página clara também ajuda o visitante a entender sua oferta e chegar rapidamente a ações como solicitar orçamento ou falar pelo WhatsApp.',
+    closing: 'Mais valor para cada visitante e menos barreiras entre o interesse e o primeiro contato.',
   },
 ];
 
@@ -340,184 +324,72 @@ function App() {
           </div>
         </section>
 
-        <section id="beneficios" className="fade-in relative mx-auto max-w-[1220px] px-4 py-20">
-          <h2 className="max-w-[900px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
-            Por que você deveria ter um site?
-          </h2>
-          <p className="mt-5 max-w-[900px] text-lg leading-8 text-muted">
-            Um site profissional não serve apenas para “estar na internet”. Ele ajuda sua empresa a transmitir confiança, ser encontrada com mais facilidade e apresentar seus serviços de forma mais estratégica.
-          </p>
+        <section id="beneficios" className="fade-in relative mx-auto max-w-[1220px] px-4 py-20 md:py-24">
+          <div className="max-w-[760px]">
+            <div className="mb-4 text-[11px] font-bold uppercase tracking-[0.18em] text-brandText">BENEFÍCIOS</div>
+            <h2 className="text-3xl font-black tracking-[-0.06em] text-white md:text-[3.2rem] md:leading-[1.04]">
+              Seu negócio merece uma presença digital à altura do que você entrega.
+            </h2>
+            <p className="mt-4 text-base leading-7 text-muted md:text-lg md:leading-8">
+              Um site profissional fortalece sua imagem, organiza suas informações e cria novos caminhos para potenciais clientes encontrarem e conhecerem o seu negócio.
+            </p>
+          </div>
 
-          <div className="mt-12 space-y-6">
-            {whySiteItems.map((item, index) => (
-              <article key={item.label} className="rounded-[18px] border border-border bg-card p-6 md:p-8">
-                <div className="flex items-start gap-4">
-                  <span className="mt-1 text-sm font-bold text-brandText">0{index + 1}</span>
-                  <div className="min-w-0">
-                    <div className="text-xs font-bold uppercase tracking-[0.18em] text-brandText">{item.label}</div>
-                    <h3 className="mt-3 max-w-[800px] text-2xl font-bold leading-tight text-white md:text-3xl">{item.title}</h3>
-                    <div className="mt-5 max-w-[900px] space-y-4 text-base leading-7 text-muted">
-                      {item.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-                    </div>
-                    {item.list && (
-                      <ul className="mt-5 list-disc space-y-2 pl-5 text-base leading-7 text-muted marker:text-brandText">
-                        {item.list.map((listItem) => <li key={listItem}>{listItem}</li>)}
-                      </ul>
-                    )}
-                    <p className="mt-5 max-w-[900px] font-semibold leading-7 text-white">{item.emphasis}</p>
+          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {whySiteItems.map((item, index) => {
+              const Icon = item.icon;
+
+              return (
+                <article
+                  key={item.title}
+                  className="group flex h-full flex-col rounded-[16px] border border-white/[0.08] bg-[#1C1C1F] p-5 transition-all duration-200 ease-out hover:-translate-y-1 hover:border-[rgba(255,23,36,0.30)] md:p-7"
+                  style={{ animationDelay: `${index * 50}ms` }}
+                >
+                  <div className="flex h-[42px] w-[42px] items-center justify-center rounded-[10px] border border-[rgba(255,23,36,0.16)] bg-[rgba(255,23,36,0.08)] text-[#FF1724] md:h-[46px] md:w-[46px]">
+                    <Icon className="h-[20px] w-[20px] md:h-[22px] md:w-[22px]" />
                   </div>
-                </div>
-              </article>
-            ))}
+
+                  <h3 className="mt-5 text-[1.15rem] font-bold leading-[1.2] tracking-[-0.04em] text-white md:text-[1.2rem]">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 text-[14px] font-semibold leading-6 text-[#F5F5F3] md:text-[15px]">
+                    {item.highlight}
+                  </p>
+
+                  <p className="mt-3 text-[14px] leading-[1.65] text-[#AAA9AD]">
+                    {item.description}
+                  </p>
+
+                  <p className="mt-4 text-[13px] font-semibold leading-5 text-[#D4D3D5] md:text-[14px]">
+                    {item.closing}
+                  </p>
+                </article>
+              );
+            })}
+          </div>
+
+          <div className="mt-14 rounded-[18px] border border-white/[0.08] bg-[#1C1C1F] p-6 md:p-8">
+            <h3 className="max-w-[720px] text-[1.8rem] font-bold leading-tight tracking-[-0.05em] text-white md:text-[2.3rem]">
+              Redes sociais chamam atenção. Seu site transforma interesse em confiança.
+            </h3>
+            <p className="mt-4 max-w-[620px] text-base leading-7 text-[#AAA9AD] md:text-lg">
+              Construa um espaço profissional para apresentar seu negócio com clareza e facilitar o contato com novos clientes.
+            </p>
+
+            <a
+              href={`${whatsappBase}?text=${encodeURIComponent('Olá! Quero um site profissional para o meu negócio.')}`}
+              className="mt-6 inline-flex items-center justify-center gap-2 rounded-full border border-brand bg-transparent px-5 py-3 text-sm font-bold tracking-[0.12em] text-white transition hover:bg-brand hover:text-white md:px-7"
+            >
+              QUERO UM SITE PROFISSIONAL <ArrowRight size={16} />
+            </a>
           </div>
         </section>
 
-        <section id="processo" className="fade-in mx-auto max-w-[1220px] px-4 py-20">
-          <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brandText">COMO FUNCIONA</div>
-          <h2 className="max-w-[900px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
-            Veja como é o processo do desenvolvimento do seu site:
-          </h2>
-          <p className="mt-5 max-w-[900px] text-xl font-semibold text-white">Um processo simples, direto e sem complicação.</p>
-          <p className="mt-4 max-w-[900px] text-lg leading-8 text-muted">
-            Você acompanha cada etapa do projeto e só avança depois de visualizar uma proposta inicial. Do primeiro contato à publicação, todo o processo é pensado para tornar a contratação clara, segura e previsível.
-          </p>
+        <ProcessSection />
 
-          <div className="mt-12 space-y-5">
-            {[
-              {
-                number: '01',
-                label: 'PRIMEIRO CONTATO',
-                title: 'Você me conta o que precisa.',
-                paragraphs: [
-                  'Conversamos sobre seu negócio, o tipo de site ou landing page que deseja criar, seus serviços, público, referências e principais objetivos.',
-                  'A partir dessas informações, começo a estruturar uma proposta visual inicial para o projeto.',
-                ],
-              },
-              {
-                number: '02',
-                label: 'PROTÓTIPO INICIAL',
-                title: 'Você visualiza a ideia antes de fechar o projeto.',
-                paragraphs: [
-                  'Desenvolvo uma primeira versão para que você consiga entender como sua empresa poderá ser apresentada no site.',
-                  'Essa etapa permite visualizar a estrutura, o estilo e a proposta geral do projeto antes de seguir para a versão final.',
-                ],
-                emphasis: 'Você consegue avaliar a proposta antes de realizar o pagamento.',
-              },
-              {
-                number: '03',
-                label: 'APROVAÇÃO E PAGAMENTO',
-                title: 'Gostou da proposta? Seguimos para a versão final.',
-                paragraphs: [
-                  'Após a aprovação do protótipo inicial, realizamos o pagamento combinado e o projeto entra na etapa de refinamento.',
-                  'A partir desse momento, trabalho na finalização da página e nos ajustes necessários para preparar o site para publicação.',
-                ],
-              },
-              {
-                number: '04',
-                label: 'REFINAMENTO E REVISÃO',
-                title: 'Ajustamos os detalhes até o projeto ficar alinhado ao seu negócio.',
-                paragraphs: [
-                  'Nesta etapa são realizadas revisões de conteúdo, textos, imagens e demais elementos apresentados no site.',
-                  'Caso seja necessário substituir informações, corrigir textos ou alterar materiais visuais, os ajustes são realizados antes da publicação.',
-                ],
-                emphasis: 'O objetivo é garantir que o conteúdo final represente corretamente sua empresa e seus serviços.',
-              },
-              {
-                number: '05',
-                label: 'DOMÍNIO, HOSPEDAGEM E PUBLICAÇÃO',
-                title: 'Eu cuido da parte técnica para colocar seu site no ar.',
-                paragraphs: [
-                  'Depois da aprovação final, realizo a configuração do domínio e da hospedagem necessários para publicar o projeto.',
-                  'O site é então colocado online e preparado para ser acessado pelos seus clientes.',
-                ],
-                emphasis: 'Você recebe o projeto publicado, funcionando e disponível em seu próprio domínio.',
-              },
-              {
-                number: '06',
-                label: '1 ANO DE SUPORTE E MANUTENÇÃO',
-                title: 'O acompanhamento continua depois da publicação.',
-                paragraphs: [
-                  'Durante o primeiro ano, você continua contando comigo para o suporte necessário ao funcionamento do site.',
-                  'Esse período inclui o acompanhamento relacionado à hospedagem, domínio e pequenas manutenções de conteúdo.',
-                  'O suporte pode incluir:',
-                ],
-                list: [
-                  'acompanhamento da hospedagem;',
-                  'suporte relacionado ao domínio;',
-                  'correções de funcionamento;',
-                  'pequenas atualizações de textos;',
-                  'substituição de informações;',
-                  'alterações simples de conteúdo;',
-                  'ajustes técnicos pontuais.',
-                ],
-                emphasis: 'Seu site continua acompanhado durante todo o primeiro ano após a publicação.',
-              },
-              {
-                number: '07',
-                label: 'CONTINUIDADE APÓS O PRIMEIRO ANO',
-                title: 'Seu site pode continuar funcionando e sendo acompanhado sem você precisar cuidar da parte técnica.',
-                paragraphs: [
-                  'Após o primeiro ano, o serviço passa para um plano mensal de continuidade.',
-                  'Esse plano é responsável por manter o site publicado, hospedado e acompanhado, além de cobrir as necessidades básicas de manutenção.',
-                  'O plano inclui:',
-                ],
-                list: [
-                  'hospedagem do site;',
-                  'suporte técnico;',
-                  'acompanhamento do domínio;',
-                  'renovação do domínio quando necessário;',
-                  'pequenas alterações de textos;',
-                  'atualização de informações;',
-                  'substituição de conteúdos simples;',
-                  'pequenas manutenções no conteúdo já existente.',
-                ],
-                emphasis: 'Assim, você continua com domínio, hospedagem e suporte centralizados em um único serviço.',
-              },
-            ].map((step) => (
-              <article key={step.number} className="rounded-[20px] border border-border bg-card p-6 md:p-8">
-                <div className="flex items-start gap-4">
-                  <span className="text-sm font-bold text-brandText">{step.number}</span>
-                  <div className="min-w-0">
-                    <div className="text-xs font-bold uppercase tracking-[0.16em] text-brandText">{step.label}</div>
-                    <h3 className="mt-3 text-2xl font-bold leading-tight text-white md:text-3xl">{step.title}</h3>
-                    <div className="mt-5 max-w-[920px] space-y-4 text-base leading-7 text-muted">
-                      {step.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-                    </div>
-                    {step.list && (
-                      <ul className="mt-4 list-disc space-y-2 pl-5 text-base leading-7 text-muted marker:text-brandText">
-                        {step.list.map((item) => <li key={item}>{item}</li>)}
-                      </ul>
-                    )}
-                    {step.emphasis && <p className="mt-5 max-w-[920px] font-semibold leading-7 text-white">{step.emphasis}</p>}
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <article className="mt-5 rounded-[20px] border border-brand/30 bg-brand/5 p-6 md:p-8">
-            <div className="text-xs font-bold uppercase tracking-[0.16em] text-brandText">O QUE NÃO ESTÁ INCLUÍDO NA MANUTENÇÃO</div>
-            <h3 className="mt-3 text-2xl font-bold leading-tight text-white md:text-3xl">Novas funcionalidades são tratadas como novas demandas de desenvolvimento.</h3>
-            <p className="mt-5 max-w-[920px] text-base leading-7 text-muted">
-              O plano de continuidade não contempla alterações que exijam um novo trabalho de desenvolvimento.
-            </p>
-            <p className="mt-4 text-base leading-7 text-muted">Mudanças como:</p>
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-base leading-7 text-muted marker:text-brandText">
-              <li>criação de novas funcionalidades;</li>
-              <li>novas páginas complexas;</li>
-              <li>integrações com novos sistemas;</li>
-              <li>alterações estruturais significativas;</li>
-              <li>redesign da interface;</li>
-              <li>desenvolvimento de novas áreas;</li>
-              <li>recursos que não faziam parte do projeto original;</li>
-            </ul>
-            <p className="mt-5 font-semibold leading-7 text-white">
-              A manutenção mantém o projeto funcionando e atualizado. Novas funcionalidades são tratadas como novas demandas de desenvolvimento.
-            </p>
-          </article>
-        </section>
-
-        <section className="fade-in mx-auto max-w-[1220px] px-4 py-20">
+        <section id="diferenciais" className="fade-in mx-auto max-w-[1220px] scroll-mt-28 px-4 py-20">
+          <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brandText">DIFERENCIAIS</div>
           <h2 className="max-w-[900px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
             O que você ganha ao desenvolver seu projeto comigo:
           </h2>
