@@ -265,11 +265,11 @@ function ProcessSection() {
                 <article
                   key={step.id}
                   data-process-step={step.id}
-                  className="relative grid gap-4 py-5 md:grid-cols-[minmax(260px,1fr)_80px_minmax(0,1fr)] md:items-center md:gap-10 md:py-10"
+                  className="relative grid grid-cols-[40px_minmax(0,1fr)] gap-3 py-5 sm:gap-4 md:grid-cols-[minmax(260px,1fr)_80px_minmax(0,1fr)] md:items-center md:gap-10 md:py-10"
                 >
                   <div className="hidden md:block">{renderMicrovisual(step)}</div>
 
-                  <div className="relative z-10 flex justify-center">
+                  <div className="relative z-10 flex justify-start md:justify-center">
                     <div
                       ref={(element) => {
                         nodeRefs.current[index] = element;
@@ -314,7 +314,6 @@ function ProcessSection() {
                     )}
                   </div>
 
-                  <div className="md:hidden">{renderMicrovisual(step)}</div>
                 </article>
               );
             })}
