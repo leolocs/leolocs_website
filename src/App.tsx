@@ -215,7 +215,7 @@ function App() {
               <img src={logoWhite} alt="Leolocs logo" width="676" height="132" className="block h-7 w-[143px] object-contain" />
             </a>
 
-            <nav aria-label="Navegação principal" className="ml-auto hidden items-center gap-8 md:flex">
+            <nav aria-label="Navegação principal" className="ml-auto hidden items-center gap-8 lg:flex">
               {navItems.map((item) => (
                 <a
                   key={item.label}
@@ -229,7 +229,7 @@ function App() {
               ))}
             </nav>
 
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
               <a
                 href={`${whatsappBase}?text=${encodeURIComponent('Olá! Acessei o site da Leolocs e gostaria de conversar sobre um projeto.')}`}
                 className="inline-flex items-center gap-2 rounded-full bg-brand px-5 py-2.5 text-xs font-bold tracking-[0.12em] text-white transition hover:bg-brand"
@@ -242,14 +242,14 @@ function App() {
               type="button"
               aria-label="Abrir menu"
               onClick={() => setMobileOpen((prev) => !prev)}
-              className="ml-auto rounded-full border border-white/10 bg-white/5 p-2 text-white md:hidden"
+              className="ml-auto rounded-full border border-white/10 bg-white/5 p-2 text-white lg:hidden"
             >
               {mobileOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
           </div>
 
           {mobileOpen && (
-            <div className="mt-4 space-y-3 border-t border-white/10 pt-4 md:hidden">
+            <div className="mt-4 space-y-3 border-t border-white/10 pt-4 lg:hidden">
               {navItems.map((item) => (
                 <a
                   key={item.label}
