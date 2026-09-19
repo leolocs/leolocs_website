@@ -205,8 +205,8 @@ function ProcessSection() {
   }, []);
 
   return (
-    <section id="processo" className="relative bg-[#141416] py-20 md:py-28">
-      <div className="mx-auto w-full max-w-[1220px] px-5 md:px-8">
+    <section id="processo" className="relative bg-[#141416] py-[60px]">
+      <div className="mx-auto w-full max-w-[1280px] px-10">
         <header className="max-w-3xl">
           <span className="font-montserrat text-xs font-bold tracking-[0.18em] text-[#FF1724]">
             COMO FUNCIONA

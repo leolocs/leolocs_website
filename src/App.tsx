@@ -296,8 +296,8 @@ function App() {
 
   return (
     <div className="min-h-screen bg-bg text-text font-body antialiased">
-      <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
-        <div className="mx-auto max-w-[1220px] rounded-[14px] border border-white/[0.15] bg-[#1a1a1d]/15 px-8 py-3 backdrop-blur-[10px] backdrop-brightness-[0.91] backdrop-saturate-[0.4]">
+      <header className="fixed inset-x-0 top-0 z-50 px-6 pt-4 md:px-8">
+        <div className="mx-auto max-w-[1280px] rounded-[14px] border border-white/[0.15] bg-[#1a1a1d]/15 px-8 py-3 backdrop-blur-[10px] backdrop-brightness-[0.91] backdrop-saturate-[0.4]">
           <div className="flex items-center gap-6">
             <a href="#inicio" className="flex shrink-0 items-center gap-3" aria-label="Leolocs início">
               <img src={logoWhite} alt="Leolocs logo" width="676" height="132" className="block h-7 w-[143px] object-contain" />
@@ -379,7 +379,7 @@ function App() {
             gradientTo="#c8c8c8"
             glowColor="#350000"
           />
-          <div className="relative mx-auto flex max-w-[1220px] justify-center px-4 pb-16 pt-4 text-center md:pb-20 md:pt-6">
+          <div className="relative mx-auto flex max-w-[1280px] justify-center px-6 pb-16 pt-4 text-center md:px-8 md:pb-20 md:pt-6">
             <div className="flex max-w-[850px] flex-col items-center">
               <h1 className="max-w-[850px] text-4xl font-black leading-[1.05] tracking-[-0.03em] text-white md:text-6xl">
                 <span className="block">Sites profissionais que fortalecem</span>
@@ -413,7 +413,7 @@ function App() {
           </div>
         </section>
 
-        <section id="beneficios" className="fade-in relative mx-auto max-w-[1220px] px-4 py-20 md:py-24">
+        <section id="beneficios" className="fade-in relative mx-auto max-w-[1280px] px-10 py-[60px]">
           <div className="max-w-[760px]">
             <div className="mb-4 text-[11px] font-bold uppercase tracking-[0.18em] text-brandText">BENEFÍCIOS</div>
             <h2 className="text-3xl font-black tracking-[-0.06em] text-white md:text-[3.2rem] md:leading-[1.04]">
@@ -477,7 +477,7 @@ function App() {
 
         <ProcessSection />
 
-        <section id="diferenciais" className="fade-in mx-auto max-w-[1220px] scroll-mt-28 px-4 py-20">
+        <section id="diferenciais" className="fade-in mx-auto max-w-[1280px] scroll-mt-28 px-10 py-[60px]">
           <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brandText">DIFERENCIAIS</div>
           <h2 className="max-w-[900px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
             O que você ganha ao desenvolver seu projeto comigo:
@@ -489,7 +489,7 @@ function App() {
         </section>
 
         {showProjectsSection && (
-          <section id="projetos" className="fade-in mx-auto max-w-[1220px] px-4 py-20">
+          <section id="projetos" className="fade-in mx-auto max-w-[1280px] px-10 py-[60px]">
             <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brandText">TRABALHOS</div>
             <h2 className="max-w-[760px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
               Projetos criados para negócios reais.
@@ -531,7 +531,7 @@ function App() {
           </section>
         )}
 
-        <section className="fade-in mx-auto max-w-[1220px] px-4 py-20">
+        <section className="fade-in mx-auto max-w-[1280px] px-10 py-[60px]">
           <div className="rounded-[24px] border border-border bg-panel p-8 md:p-12">
             <p className="text-balance text-3xl font-black leading-tight tracking-[-0.05em] text-white md:text-5xl">
               Seu cliente não precisa entender de tecnologia. Ele precisa entender por que deveria escolher sua empresa.
@@ -543,7 +543,7 @@ function App() {
         </section>
 
         {showTrustSection && (
-          <section className="fade-in mx-auto max-w-[1220px] px-4 py-20">
+          <section className="fade-in mx-auto max-w-[1280px] px-10 py-[60px]">
             <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brandText">CONFIANÇA</div>
             <h2 className="max-w-[760px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
               A experiência de quem já confiou no meu trabalho.
@@ -571,7 +571,7 @@ function App() {
           </section>
         )}
 
-        <section id="sobre" className="fade-in mx-auto max-w-[1220px] px-4 py-20">
+        <section id="sobre" className="fade-in mx-auto max-w-[1280px] px-10 py-[60px]">
           <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
             <div
               onPointerMove={handleProfilePointerMove}
@@ -613,7 +613,7 @@ function App() {
           </div>
         </section>
 
-        <section id="faq" className="fade-in scroll-mt-28 mx-auto max-w-[1220px] px-4 py-20">
+        <section id="faq" className="fade-in scroll-mt-28 mx-auto max-w-[1280px] px-10 py-[60px]">
           <h2 className="max-w-[760px] text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
             Dúvidas Frequentes
           </h2>
@@ -648,7 +648,7 @@ function App() {
           </div>
         </section>
 
-        <section className="fade-in mx-auto max-w-[1220px] px-4 py-20">
+        <section className="fade-in mx-auto max-w-[1280px] px-10 py-[60px]">
           <div className="rounded-[28px] border border-brand/25 bg-[radial-gradient(circle_at_top,_rgba(189,20,20,0.2),_transparent_35%),linear-gradient(180deg,#1d1d20,#151518)] p-8 md:p-12">
             <div className="text-xs font-bold uppercase tracking-[0.2em] text-brandText">VAMOS COMEÇAR?</div>
             <h2 className="mt-5 max-w-[850px] text-3xl font-black tracking-[-0.05em] text-white md:text-6xl">
@@ -672,8 +672,8 @@ function App() {
       </main>
 
       <footer id="contato" className="border-t border-white/10 bg-[#0E0E10]">
-        <div className="mx-auto grid max-w-[1220px] justify-items-start gap-10 px-6 py-12 md:grid-cols-2 xl:grid-cols-4">
-          <div className="justify-self-start xl:col-span-2">
+        <div className="mx-auto grid max-w-[1280px] justify-items-start gap-10 px-6 py-12 md:grid-cols-[2fr_1fr_1fr] md:px-8">
+          <div className="justify-self-start">
             <div className="flex items-center justify-start gap-3">
               <img src={logoWhite} alt="Leolocs logo" width="676" height="132" className="block h-8 w-[163px] object-contain" />
             </div>
@@ -702,7 +702,7 @@ function App() {
           </div>
         </div>
 
-        <div className="mx-auto flex max-w-[1220px] flex-col gap-5 border-t border-white/10 px-4 py-6 md:flex-row md:items-center md:justify-between">
+        <div className="mx-auto flex max-w-[1280px] flex-col gap-5 border-t border-white/10 px-6 py-6 md:flex-row md:items-center md:justify-between md:px-8">
           <div className="text-sm text-muted">© 2026 Leolocs. Todos os direitos reservados. | CNPJ 65.870.050/0001-75</div>
           <div className="flex items-center gap-4 text-white/70">
             <div className="flex items-center gap-3">
