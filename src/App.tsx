@@ -6,10 +6,15 @@ import {
   ChevronDown,
   ChevronRight,
   CircleDashed,
+  Gauge,
+  LifeBuoy,
   Menu,
   MonitorSmartphone,
   MousePointerClick,
+  MessagesSquare,
   PanelsTopLeft,
+  PenTool,
+  ShieldCheck,
   Search,
   SlidersHorizontal,
   TrendingUp,
@@ -138,6 +143,79 @@ const projectCards = [
 ];
 
 const whatsappBase = 'https://wa.me/5585999893938';
+
+const differentials = [
+  {
+    title: 'Performance',
+    icon: Gauge,
+    headline: 'Um site leve e preparado para entregar uma boa experiência.',
+    description: 'Estrutura enxuta, imagens e arquivos otimizados e menos recursos desnecessários para favorecer velocidade e eficiência.',
+    highlight: 'Páginas mais leves, rápidas e eficientes.',
+  },
+  {
+    title: 'Personalização',
+    icon: PenTool,
+    headline: 'Um site feito sob medida para o seu negócio.',
+    description: 'Estrutura, seções e identidade visual são desenvolvidas de acordo com sua empresa e seus objetivos, sem depender de layouts prontos.',
+    highlight: 'O projeto se adapta ao seu negócio — não o contrário.',
+  },
+  {
+    title: 'Atendimento direto',
+    icon: MessagesSquare,
+    headline: 'Você fala diretamente com quem desenvolve o projeto.',
+    description: 'Durante todo o processo, o contato é feito diretamente comigo, sem intermediários ou burocracia para solicitar ajustes.',
+    highlight: 'Comunicação mais simples, rápida e direta.',
+  },
+  {
+    title: 'Segurança',
+    icon: ShieldCheck,
+    headline: 'Uma estrutura preparada para funcionar com segurança.',
+    description: 'O site utiliza HTTPS, certificado SSL, hospedagem confiável e evita plugins e extensões desnecessárias.',
+    highlight: 'Mais confiabilidade desde a publicação.',
+  },
+  {
+    title: 'Responsividade',
+    icon: MonitorSmartphone,
+    headline: 'Uma boa experiência em qualquer tela.',
+    description: 'O projeto é desenvolvido para se adaptar a computadores, tablets e smartphones.',
+    highlight: 'Seu negócio continua bem apresentado em qualquer dispositivo.',
+  },
+  {
+    title: 'Suporte',
+    icon: LifeBuoy,
+    headline: 'Seu site continua acompanhado depois que entra no ar.',
+    description: 'Enquanto permanecer hospedado comigo, você conta com suporte relacionado ao funcionamento, hospedagem, domínio e pequenas atualizações.',
+    highlight: 'O relacionamento não termina na publicação.',
+  },
+];
+
+type DifferentialCardProps = (typeof differentials)[number];
+
+function DifferentialCard({ icon: Icon, title, headline, description, highlight }: DifferentialCardProps) {
+  function handlePointerMove(event: React.PointerEvent<HTMLElement>) {
+    const card = event.currentTarget;
+    const bounds = card.getBoundingClientRect();
+
+    card.style.setProperty('--mouse-x', `${event.clientX - bounds.left}px`);
+    card.style.setProperty('--mouse-y', `${event.clientY - bounds.top}px`);
+  }
+
+  return (
+    <article onPointerMove={handlePointerMove} className="differential-card p-6">
+      <div className="differential-card__content">
+        <div className="flex items-center gap-4">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#FF1724]/20 bg-[#FF1724]/10 text-[#FF1724]">
+            <Icon className="h-5 w-5" strokeWidth={1.9} aria-hidden="true" />
+          </div>
+          <h3 className="text-xl font-bold leading-tight text-white">{title}</h3>
+        </div>
+        <p className="mt-5 text-base font-semibold leading-7 text-white">{headline}</p>
+        <p className="mt-4 text-base leading-7 text-muted">{description}</p>
+        <p className="mt-5 font-semibold leading-7 text-white">{highlight}</p>
+      </div>
+    </article>
+  );
+}
 
 function App() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -405,80 +483,8 @@ function App() {
             O que você ganha ao desenvolver seu projeto comigo:
           </h2>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {[
-              {
-                number: '01',
-                title: 'Performance',
-                intro: 'Um site leve, rápido e preparado para entregar uma boa experiência.',
-                paragraphs: [
-                  'O site é desenvolvido com uma estrutura enxuta e otimizada, evitando recursos, plugins e dependências desnecessárias que podem aumentar o tempo de carregamento.',
-                  'O projeto também é preparado com boas práticas de performance, como otimização de imagens, carregamento eficiente de fontes e arquivos, código organizado e redução de elementos que possam prejudicar a velocidade da página.',
-                  'Além disso, o site não depende de CMS quando esse tipo de plataforma não é necessário para o projeto, permitindo maior controle sobre o que realmente é carregado no navegador.',
-                ],
-                emphasis: 'Na prática, isso significa uma página mais leve, rápida e eficiente para quem acessa seu negócio.',
-              },
-              {
-                number: '02',
-                title: 'Personalização',
-                intro: 'Um site feito sob medida para o seu negócio.',
-                paragraphs: [
-                  'Seu projeto não começa a partir de um layout pronto.',
-                  'A estrutura, organização das seções, identidade visual e experiência da página são desenvolvidas de acordo com sua empresa, seus serviços, seu público e o objetivo principal do projeto.',
-                ],
-                emphasis: 'O resultado é um site desenvolvido para representar o seu negócio — e não apenas adaptar sua marca a um modelo pronto.',
-              },
-              {
-                number: '03',
-                title: 'Atendimento direto',
-                intro: 'Durante o projeto, você fala diretamente comigo — o profissional responsável pelo design e desenvolvimento do seu site.',
-                paragraphs: [
-                  'Sem precisar passar por diversos setores, atendentes ou processos burocráticos para explicar uma alteração.',
-                  'Isso torna a comunicação mais simples, reduz ruídos e facilita ajustes durante e depois do desenvolvimento.',
-                ],
-                emphasis: 'Você fala diretamente com quem está construindo o seu projeto.',
-              },
-              {
-                number: '04',
-                title: 'Segurança',
-                intro: 'Seu site é publicado utilizando serviços de hospedagem confiáveis e configurado com certificado SSL, garantindo conexão HTTPS e proteção dos dados transmitidos entre o visitante e a página.',
-                paragraphs: [
-                  'Além disso, a estrutura do projeto evita recursos e extensões desnecessárias, reduzindo pontos que poderiam exigir manutenção ou atualização constante.',
-                ],
-                emphasis: 'Você recebe um site preparado para operar com mais segurança e confiabilidade desde o lançamento.',
-              },
-              {
-                number: '05',
-                title: 'Responsividade',
-                intro: 'Seu site é desenvolvido para funcionar corretamente em computadores, tablets e smartphones.',
-                paragraphs: [
-                  'A estrutura, o conteúdo, os botões e os elementos da interface são adaptados para diferentes tamanhos de tela, garantindo uma navegação clara e confortável independentemente do dispositivo utilizado pelo seu cliente.',
-                ],
-                emphasis: 'Seu negócio continua bem apresentado, seja no computador ou no celular.',
-              },
-              {
-                number: '06',
-                title: 'Suporte',
-                intro: 'O acompanhamento não termina depois que o site é publicado.',
-                paragraphs: [
-                  'Enquanto seu site permanecer hospedado comigo, você continua contando com suporte para questões relacionadas ao funcionamento da página, hospedagem, domínio e ajustes técnicos necessários para manter o projeto operando corretamente.',
-                  'Isso significa que, caso surja alguma dúvida, problema ou necessidade de orientação, você continua tendo um contato direto para resolver essas questões sem precisar procurar outro profissional.',
-                ],
-                emphasis: 'Seu site continua com suporte mesmo depois de estar no ar.',
-              },
-            ].map((benefit) => (
-              <article key={benefit.number} className="rounded-[18px] border border-border bg-card p-6 transition hover:-translate-y-1 hover:border-brand/40">
-                <div className="mb-5 flex items-center justify-between">
-                  <span className="text-sm font-bold text-brandText">{benefit.number}</span>
-                  <span className="text-xs font-bold uppercase tracking-[0.16em] text-brandText">{benefit.title}</span>
-                </div>
-                <h3 className="text-xl font-bold leading-tight text-white">{benefit.intro}</h3>
-                <div className="mt-5 space-y-4 text-base leading-7 text-muted">
-                  {benefit.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-                </div>
-                <p className="mt-5 font-semibold leading-7 text-white">{benefit.emphasis}</p>
-              </article>
-            ))}
+          <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {differentials.map((differential) => <DifferentialCard key={differential.title} {...differential} />)}
           </div>
         </section>
 

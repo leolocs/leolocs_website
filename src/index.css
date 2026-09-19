@@ -71,6 +71,58 @@ img {
   animation: hero-word-in 320ms ease-out;
 }
 
+.differential-card {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: #1c1c1f;
+  transition: transform 220ms ease, border-color 220ms ease;
+}
+
+.differential-card::before,
+.differential-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.differential-card::before {
+  background: radial-gradient(320px circle at var(--mouse-x) var(--mouse-y), rgba(255, 23, 36, 0.12), transparent 45%);
+  z-index: 0;
+}
+
+.differential-card::after {
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(240px circle at var(--mouse-x) var(--mouse-y), rgba(255, 23, 36, 0.55), transparent 45%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 1;
+}
+
+.differential-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 23, 36, 0.26);
+}
+
+.differential-card:hover::before,
+.differential-card:hover::after {
+  opacity: 1;
+}
+
+.differential-card__content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
+
 @keyframes hero-word-in {
   from {
     opacity: 0;
@@ -112,6 +164,26 @@ img {
 
   .hero-word {
     animation: none;
+  }
+
+  .differential-card {
+    transition: none;
+  }
+
+  .differential-card:hover {
+    transform: none;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .differential-card::before,
+  .differential-card::after {
+    display: none;
+  }
+
+  .differential-card:hover {
+    transform: none;
+    border-color: rgba(255, 255, 255, 0.08);
   }
 }
 
