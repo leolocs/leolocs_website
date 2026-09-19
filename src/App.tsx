@@ -35,6 +35,7 @@ const navItems = [
 
 const showProjectsSection = false;
 const showTrustSection = false;
+const heroWords = ['sua presença digital', 'sua marca', 'seu negócio', 'sua confiança'];
 
 const faqItems = [
   {
@@ -142,6 +143,15 @@ function App() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [profileTilt, setProfileTilt] = useState({ x: 0, y: 0 });
+  const [currentWord, setCurrentWord] = useState(0);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setCurrentWord((previousWord) => (previousWord + 1) % heroWords.length);
+    }, 2200);
+
+    return () => window.clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -272,7 +282,7 @@ function App() {
       </header>
 
       <main id="inicio" className="scroll-smooth">
-        <section className="fade-in relative overflow-hidden pt-32 md:pt-40">
+        <section className="fade-in relative overflow-hidden pt-24 md:pt-28 lg:pt-32">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(189,20,20,0.18),_transparent_35%)]" />
           <div className="absolute inset-0 bg-grid bg-[size:36px_36px] opacity-20" />
           <DotField
@@ -291,10 +301,11 @@ function App() {
             gradientTo="#c8c8c8"
             glowColor="#350000"
           />
-          <div className="relative mx-auto flex max-w-[1220px] justify-center px-4 pb-16 pt-8 text-center md:pb-20">
+          <div className="relative mx-auto flex max-w-[1220px] justify-center px-4 pb-16 pt-4 text-center md:pb-20 md:pt-6">
             <div className="flex max-w-[850px] flex-col items-center">
-              <h1 className="max-w-[850px] text-4xl font-black leading-[1.05] tracking-[-0.06em] text-white md:text-6xl">
-                Sites profissionais que valorizam seu negócio e facilitam o contato com novos clientes.
+              <h1 className="max-w-[850px] text-4xl font-black leading-[1.05] tracking-[-0.03em] text-white md:text-6xl">
+                <span className="block">Sites profissionais que fortalecem</span>
+                <span key={heroWords[currentWord]} className="hero-word block text-brandText">{heroWords[currentWord]}</span>
               </h1>
               <p className="mt-6 max-w-[720px] text-lg leading-8 text-muted">
                 Crio sites e landing pages modernos, rápidos e estratégicos para empresas e profissionais que querem transmitir mais credibilidade, apresentar seus serviços com clareza e transformar visitantes em possíveis clientes.

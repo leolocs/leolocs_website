@@ -67,6 +67,21 @@ img {
   transform: translateY(0);
 }
 
+.hero-word {
+  animation: hero-word-in 320ms ease-out;
+}
+
+@keyframes hero-word-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .faq-answer {
   display: grid;
   grid-template-rows: 0fr;
@@ -93,6 +108,10 @@ img {
   .profile-tilt {
     transform: none !important;
     transition: none;
+  }
+
+  .hero-word {
+    animation: none;
   }
 }
 
