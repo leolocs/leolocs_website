@@ -38,6 +38,11 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# Lighthouse relatórios locais
+.lighthouse-*.json
+*.lighthouse*.json
+lighthouse-*.json
+
 # Editor / sistema
 .vscode/
 .DS_Store
