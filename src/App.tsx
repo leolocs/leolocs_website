@@ -142,7 +142,7 @@ const projectCards = [
   },
 ];
 
-const whatsappBase = 'https://wa.me/5585999893938';
+const whatsappBase = 'https://wa.link/wrpl2m';
 
 const differentials = [
   {
@@ -319,7 +319,7 @@ function App() {
 
             <div className="hidden lg:block">
               <a
-                href={`${whatsappBase}?text=${encodeURIComponent('Olá! Acessei o site da Leolocs e gostaria de conversar sobre um projeto.')}`}
+                href={whatsappBase}
                 className="inline-flex items-center gap-2 rounded-full bg-brand px-5 py-2.5 text-xs font-bold tracking-[0.12em] text-white transition hover:bg-brand"
               >
                 PEDIR MEU SITE
@@ -349,7 +349,7 @@ function App() {
                 </a>
               ))}
               <a
-                href={`${whatsappBase}?text=${encodeURIComponent('Olá! Acessei o site da Leolocs e gostaria de conversar sobre um projeto.')}`}
+                href={whatsappBase}
                 className="mt-2 inline-flex items-center gap-2 rounded-full bg-brand px-4 py-2.5 text-xs font-bold tracking-[0.12em] text-white"
               >
                 PEDIR MEU SITE
@@ -391,7 +391,7 @@ function App() {
 
               <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
                 <a
-                  href={`${whatsappBase}?text=${encodeURIComponent('Olá! Acessei o site da Leolocs e gostaria de conversar sobre um projeto.')}`}
+                  href={whatsappBase}
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-brand bg-transparent px-6 py-3.5 text-sm font-bold tracking-[0.04em] text-white transition hover:bg-brand hover:text-white"
                 >
                   Conversar sobre meu projeto <ArrowRight size={16} />
@@ -467,7 +467,7 @@ function App() {
             </p>
 
             <a
-              href={`${whatsappBase}?text=${encodeURIComponent('Olá! Quero um site profissional para o meu negócio.')}`}
+              href={whatsappBase}
               className="mt-6 inline-flex items-center justify-center gap-2 rounded-full border border-brand bg-transparent px-5 py-3 text-sm font-bold tracking-[0.12em] text-white transition hover:bg-brand hover:text-white md:px-7"
             >
               QUERO UM SITE PROFISSIONAL <ArrowRight size={16} />
@@ -604,7 +604,7 @@ function App() {
                 <p>Por isso, participo diretamente das etapas de planejamento, design, desenvolvimento e publicação de cada projeto.</p>
               </div>
               <a
-                href={`${whatsappBase}?text=${encodeURIComponent('Olá! Acessei o site da Leolocs e gostaria de conversar sobre um projeto.')}`}
+                href={whatsappBase}
                 className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-bold tracking-[0.12em] text-white transition hover:bg-brand"
               >
                 PEDIR MEU SITE <ArrowRight size={16} />
@@ -660,7 +660,7 @@ function App() {
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <a
-                href={`${whatsappBase}?text=${encodeURIComponent('Olá! Acessei o site da Leolocs e gostaria de conversar sobre um projeto.')}`}
+                href={whatsappBase}
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-brand bg-transparent px-6 py-3.5 text-sm font-bold tracking-[0.04em] text-white transition hover:bg-brand hover:text-white"
               >
                 Começar meu projeto <ArrowRight size={16} />
