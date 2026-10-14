@@ -1,6 +1,4 @@
 import {
-  ArrowRight,
-  ArrowUpRight,
   BadgeCheck,
   ChartNoAxesCombined,
   ChevronDown,
@@ -8,6 +6,7 @@ import {
   CircleDashed,
   Gauge,
   LifeBuoy,
+  MessageCircle,
   Menu,
   MonitorSmartphone,
   MousePointerClick,
@@ -294,10 +293,24 @@ function App() {
     setProfileTilt({ x: 0, y: 0 });
   }
 
+  function handleHeaderCtaPointerMove(event: React.PointerEvent<HTMLAnchorElement>) {
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const pointerX = ((event.clientX - bounds.left) / bounds.width) * 100;
+    const pointerY = ((event.clientY - bounds.top) / bounds.height) * 100;
+
+    event.currentTarget.style.setProperty('--cta-x', `${pointerX}%`);
+    event.currentTarget.style.setProperty('--cta-y', `${pointerY}%`);
+  }
+
+  function resetHeaderCtaGlow(event: React.PointerEvent<HTMLAnchorElement>) {
+    event.currentTarget.style.setProperty('--cta-x', '50%');
+    event.currentTarget.style.setProperty('--cta-y', '50%');
+  }
+
   return (
     <div className="min-h-screen bg-bg text-text font-body antialiased">
       <header className="fixed inset-x-0 top-0 z-50 px-6 pt-4 md:px-8">
-        <div className="mx-auto max-w-[1280px] rounded-[14px] border border-white/[0.15] bg-[#1a1a1d]/15 px-8 py-3 backdrop-blur-[10px] backdrop-brightness-[0.91] backdrop-saturate-[0.4]">
+        <div className="mx-auto max-w-[1280px] rounded-[50px] border border-white/[0.15] bg-[#1a1a1d]/15 px-8 py-3 backdrop-blur-[10px] backdrop-brightness-[0.91] backdrop-saturate-[0.4]">
           <div className="flex items-center gap-6">
             <a href="#inicio" className="flex shrink-0 items-center gap-3" aria-label="Leolocs início">
               <img src={logoWhite} alt="Leolocs logo" width="676" height="132" className="block h-7 w-[143px] object-contain" />
@@ -320,9 +333,14 @@ function App() {
             <div className="hidden lg:block">
               <a
                 href={whatsappBase}
-                className="inline-flex items-center gap-2 rounded-full bg-brand px-5 py-2.5 text-xs font-bold tracking-[0.12em] text-white transition hover:bg-brand"
+                onPointerMove={handleHeaderCtaPointerMove}
+                onPointerLeave={resetHeaderCtaGlow}
+                className="header-cta-shiny inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold tracking-[0.12em] text-white"
               >
-                PEDIR MEU SITE
+                <span className="inline-flex items-center gap-2">
+                  <MessageCircle size={20} />
+                  SOLICITAR MEU SITE
+                </span>
               </a>
             </div>
 
@@ -330,7 +348,7 @@ function App() {
               type="button"
               aria-label="Abrir menu"
               onClick={() => setMobileOpen((prev) => !prev)}
-              className="ml-auto rounded-full border border-white/10 bg-white/5 p-2 text-white lg:hidden"
+              className="ml-auto rounded-full border border-white/10 bg-white/5 p-2 text-white transition-colors duration-300 ease-in-out hover:border-white/20 hover:bg-white/10 lg:hidden"
             >
               {mobileOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
@@ -350,9 +368,14 @@ function App() {
               ))}
               <a
                 href={whatsappBase}
-                className="mt-2 inline-flex items-center gap-2 rounded-full bg-brand px-4 py-2.5 text-xs font-bold tracking-[0.12em] text-white"
+                onPointerMove={handleHeaderCtaPointerMove}
+                onPointerLeave={resetHeaderCtaGlow}
+                className="header-cta-shiny mt-2 inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-xs font-bold tracking-[0.12em] text-white"
               >
-                PEDIR MEU SITE
+                <span className="inline-flex items-center gap-2">
+                  <MessageCircle size={20} />
+                  SOLICITAR MEU SITE
+                </span>
               </a>
             </div>
           )}
@@ -386,21 +409,26 @@ function App() {
                 <span key={heroWords[currentWord]} className="hero-word block text-brandText">{heroWords[currentWord]}</span>
               </h1>
               <p className="mt-6 max-w-[720px] text-lg leading-8 text-muted">
-                Crio sites e landing pages modernos, rápidos e estratégicos para empresas e profissionais que querem transmitir mais credibilidade, apresentar seus serviços com clareza e transformar visitantes em possíveis clientes.
+                Desenvolvo sites e landing pages modernos, rápidos e estratégicos para empresas e profissionais que querem transmitir mais credibilidade, apresentar seus serviços com clareza e transformar visitantes em possíveis clientes.
               </p>
 
               <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
                 <a
                   href={whatsappBase}
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-brand bg-transparent px-6 py-3.5 text-sm font-bold tracking-[0.04em] text-white transition hover:bg-brand hover:text-white"
+                  onPointerMove={handleHeaderCtaPointerMove}
+                  onPointerLeave={resetHeaderCtaGlow}
+                  className="header-cta-shiny inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-bold tracking-[0.04em] text-white"
                 >
-                  Conversar sobre meu projeto <ArrowRight size={16} />
+                  <span className="inline-flex items-center gap-2">
+                    <MessageCircle size={20} />
+                    Solicitar meu projeto
+                  </span>
                 </a>
                 <a
                   href="#processo"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/0 px-6 py-3.5 text-sm font-bold tracking-[0.12em] text-white transition hover:border-brand/50 hover:text-brandText"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/0 px-6 py-3.5 text-sm font-bold tracking-[0.12em] text-white transition-all duration-300 ease-in-out hover:border-brand/50 hover:text-brandText"
                 >
-                  Como funciona <ArrowUpRight size={16} />
+                  Como funciona <ChevronDown size={16} />
                 </a>
               </div>
 
@@ -468,9 +496,10 @@ function App() {
 
             <a
               href={whatsappBase}
-              className="mt-6 inline-flex items-center justify-center gap-2 rounded-full border border-brand bg-transparent px-5 py-3 text-sm font-bold tracking-[0.12em] text-white transition hover:bg-brand hover:text-white md:px-7"
+              className="mt-6 inline-flex items-center justify-center gap-2 rounded-full border border-transparent bg-brandText px-5 py-3 text-sm font-bold tracking-[0.12em] text-white transition-all duration-300 ease-in-out hover:border-white hover:bg-brand hover:text-white md:px-7"
             >
-              QUERO UM SITE PROFISSIONAL <ArrowRight size={16} />
+              <MessageCircle size={20} />
+              QUERO UM SITE PROFISSIONAL
             </a>
           </div>
         </section>
@@ -572,14 +601,14 @@ function App() {
         )}
 
         <section id="sobre" className="fade-in mx-auto max-w-[1280px] px-10 py-[60px]">
-          <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="grid grid-cols-1 items-stretch gap-10 lg:grid-cols-[2fr_3fr]">
             <div
               onPointerMove={handleProfilePointerMove}
               onPointerLeave={resetProfileTilt}
               style={{
                 transform: `perspective(900px) rotateX(${profileTilt.x}deg) rotateY(${profileTilt.y}deg)`,
               }}
-              className="profile-tilt overflow-hidden rounded-[24px] border border-border bg-card"
+              className="profile-tilt order-2 overflow-hidden rounded-[24px] border border-transparent bg-card lg:order-1"
             >
               <img
                 src={profileImage}
@@ -588,26 +617,27 @@ function App() {
                 height="2048"
                 loading="lazy"
                 decoding="async"
-                className="h-[500px] w-full object-cover object-center"
+                className="h-full w-auto object-cover object-center"
               />
             </div>
 
-            <div>
+            <div className="order-1 flex h-full min-w-0 flex-col lg:order-2">
               <div className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-brandText">SOBRE MIM</div>
               <h2 className="text-3xl font-black tracking-[-0.06em] text-white md:text-5xl">
-                Design, tecnologia e estratégia trabalhando para o mesmo objetivo.
+                Design e tecnologia unidos para projetar soluções que fazem sentido para o seu negócio.
               </h2>
               <div className="mt-6 space-y-5 text-lg leading-8 text-muted">
-                <p>Olá, sou Leonardo, designer e desenvolvedor responsável pela Leolocs.</p>
-                <p>Meu trabalho une design de interfaces e desenvolvimento web para ajudar empresas e profissionais a construírem uma presença digital mais clara, moderna e profissional.</p>
-                <p>Não acredito em criar um site apenas para “estar na internet”. Cada projeto precisa ter um propósito: apresentar melhor um negócio, fortalecer sua credibilidade e facilitar o caminho entre o interesse do visitante e o contato com a empresa.</p>
-                <p>Por isso, participo diretamente das etapas de planejamento, design, desenvolvimento e publicação de cada projeto.</p>
+                <p>Olá, me chamo Leonardo, sou designer e desenvolvedor, formado em Análise e Desenvolvimento de Sistemas e atuo há mais de 7 anos com Design, experiência que me permite unir visão visual, usabilidade e desenvolvimento técnico na criação de projetos digitais mais completos.</p>
+                <p>Meu trabalho combina design de interfaces, experiência do usuário e desenvolvimento web para criar sites com identidade, clareza e estrutura pensadas de acordo com cada negócio.</p>
+                <p>Cada projeto precisa ter um propósito: apresentar melhor uma empresa, fortalecer sua credibilidade, valorizar sua marca e facilitar o caminho entre o interesse do visitante e o contato.</p>
+                <p>Por isso, participo diretamente de todas as etapas do projeto — do planejamento e definição da interface ao desenvolvimento, revisão e publicação.</p>
               </div>
               <a
                 href={whatsappBase}
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-bold tracking-[0.12em] text-white transition hover:bg-brand"
+                className="mt-8 inline-flex items-center gap-2 self-start rounded-full border border-transparent bg-brandText px-5 py-3 text-sm font-bold tracking-[0.12em] text-white transition-all duration-300 ease-in-out hover:border-white hover:bg-brand"
               >
-                PEDIR MEU SITE <ArrowRight size={16} />
+                <MessageCircle size={20} />
+                SOLICITAR MEU PROJETO
               </a>
             </div>
           </div>
@@ -628,7 +658,7 @@ function App() {
                     aria-controls={`faq-answer-${index}`}
                     aria-expanded={open}
                     onClick={() => setOpenFaq(open ? null : index)}
-                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+                      className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition-colors duration-300 ease-in-out hover:bg-white/[0.02]"
                   >
                     <span className="text-lg font-bold text-white">{item.question}</span>
                     <ChevronDown className={`transition ${open ? 'rotate-180 text-brandText' : 'text-white/60'}`} size={20} />
@@ -661,9 +691,10 @@ function App() {
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <a
                 href={whatsappBase}
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-brand bg-transparent px-6 py-3.5 text-sm font-bold tracking-[0.04em] text-white transition hover:bg-brand hover:text-white"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-transparent bg-brandText px-6 py-3.5 text-sm font-bold tracking-[0.04em] text-white transition-all duration-300 ease-in-out hover:border-white hover:bg-brand hover:text-white"
               >
-                Começar meu projeto <ArrowRight size={16} />
+                <MessageCircle size={20} />
+                Começar meu projeto
               </a>
             </div>
 
